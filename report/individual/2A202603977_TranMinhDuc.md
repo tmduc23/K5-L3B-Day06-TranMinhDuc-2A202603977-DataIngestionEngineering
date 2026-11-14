@@ -15,7 +15,7 @@
   | `swin-2021` | Liu et al., *Swin Transformer: Hierarchical Vision Transformer using Shifted Windows* | arXiv 2103.14030v2 | 14 | 11 (p1–11) | p12–14: chỉ References |
   | **Tổng** | | | 49 | **37** | |
 
-  Quy tắc tính: tính trang có nội dung văn bản liên quan (abstract, thân bài, appendix, bảng/hình có chú thích); loại trang chỉ chứa References; trang lẫn nội dung + References vẫn tính và ghi chú. Số ký tự từng trang đo bằng `starter/scripts/inspect_corpus.py` (log: `starter/results/page_inspection.txt`). Chi tiết: `data/manifest.json`. Bài survey ban đầu chỉ có 26 trang nội dung (< 30) nên bổ sung bài Swin — cũng là chủ đề mục 4.2 của survey.
+  Quy tắc tính: tính trang có nội dung văn bản liên quan (abstract, thân bài, appendix, bảng/hình có chú thích); loại trang chỉ chứa References; trang lẫn nội dung + References vẫn tính và ghi chú. Số ký tự từng trang đo bằng `starter/scripts/inspect_corpus.py` (log `starter/results/page_inspection.txt` sinh khi chạy script, không commit; số ký tự từng trang đã ghi lại trong `data/manifest.json`). Chi tiết: `data/manifest.json`. Bài survey ban đầu chỉ có 26 trang nội dung (< 30) nên bổ sung bài Swin — cũng là chủ đề mục 4.2 của survey.
 
 - **Chuẩn hóa, lỗi và giới hạn:**
   Đọc bằng `pypdf` 6.21.4 theo từng trang (PDF sinh từ LaTeX, không cần OCR). Chuẩn hóa: Unicode NFKC (`ﬁ` → `fi`), nối từ bị gạch nối xuống dòng (`pro-\ncessing` → `processing`), gộp khoảng trắng nhưng giữ xuống dòng để nhận heading. Phần sau dòng `References` trên trang lẫn được cắt và ghi log (`starter/results/ingest_issues.json`: survey p26 bỏ 359 ký tự, Swin p11 bỏ 4.435 ký tự). Không có trang lỗi trích xuất hay trang rỗng.
@@ -87,8 +87,8 @@ Truy vấn 20 câu dùng chung cho cả 3 cấu hình: 398 token / 2 lần gọi
 | C | 1,50 (= B, cùng chunk) | 15/15 | dev 2/2, test 1/1 | 0/0/5 — 2,00 |
 
 **Đường dẫn trace, nhãn thủ công và cách chọn mẫu:**
-- Trace top-3 đầy đủ (câu hỏi, split, filter, chunk ID/text, score, metadata, nhãn tự động): `starter/results/traces_A.json`, `traces_B.json`, `traces_C.json`; bản dễ đọc `traces_readable.md`, `top3_all.csv`. Chỉ số: `starter/results/metrics.json`. Cấu hình chạy: `config.json`; thống kê ingest: `ingest_stats.json`.
-- Nhãn audit: `starter/results/audit/coherence.json`, `metadata.json`, `grounding.json`; tổng hợp `audit_summary.md` (sinh bằng `scripts/summarize_audit.py`).
+- Trace top-3 đầy đủ (câu hỏi, split, filter, chunk ID/text, score, metadata, nhãn tự động): `starter/results/traces_A.json`, `traces_B.json`, `traces_C.json`; bản dễ đọc `traces_readable.md`, `top3_all.csv` sinh bằng `scripts/export_traces.py` (không commit). Chỉ số: `starter/results/metrics.json`. Cấu hình chạy: `config.json`; thống kê ingest: `ingest_stats.json`.
+- Nhãn audit: `starter/results/coherence.json`, `metadata.json`, `grounding.json`; tổng hợp `audit_summary.md` sinh bằng `scripts/summarize_audit.py` (đọc từ `results/audit/`, không commit).
 - Cách chọn mẫu: **coherence** — quy tắc cố định chọn trước: sắp 37 trang theo (thứ tự manifest, số trang), lấy 10 trang cách đều (chỉ số 0, 4, …, 36), vị trí = ký tự giữa trang; chấm chunk chứa vị trí đó ở A và B (C dùng chunk B). Hai vị trí rơi vào bảng (P07 survey p25, P09 Swin p7) được giữ nguyên, không chọn lại. **Metadata** — 5 câu test × top-3 × A/B/C = 45 bản ghi, đối chiếu PDF. **Grounding** — 5 câu test × A/B/C, chỉ dựa vào top-3.
 - Nhãn audit được soạn với sự hỗ trợ của công cụ AI (Claude Code) dựa trên trace và PDF gốc; tác giả chịu trách nhiệm rà soát từng nhãn. Người chấm là tác giả bài, đã biết cấu hình nào được chọn → có nguy cơ thiên lệch.
 

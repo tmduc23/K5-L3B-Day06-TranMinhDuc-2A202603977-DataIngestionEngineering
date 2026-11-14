@@ -7,7 +7,7 @@ Pipeline biến 2 bài báo về **Vision Transformers cho semantic segmentation
 - **Cấu hình được chọn:** **C** (chunk theo heading + câu, có metadata filter) — lý do trong [benchmark/README.md](benchmark/README.md)
 - **Báo cáo:** [report/individual/2A202603977_TranMinhDuc.md](report/individual/2A202603977_TranMinhDuc.md)
 
-Đề bài gốc: [GUIDE.md](GUIDE.md) · [BENCHMARK.md](BENCHMARK.md) · [RUBRIC.md](RUBRIC.md) · [RULES.md](RULES.md) · [SUBMISSION.md](SUBMISSION.md) · [CHECKPOINTS.md](CHECKPOINTS.md)
+Đề bài gốc: [GUIDE.md](GUIDE.md) · [BENCHMARK.md](BENCHMARK.md) · [RUBRIC.md](RUBRIC.md) · [RULES.md](RULES.md) · [SUBMISSION.md](SUBMISSION.md) · [CHECKPOINTS.md](CHECKPOINTS.md) · [REPORT_TEMPLATE.md](REPORT_TEMPLATE.md)
 
 ---
 
@@ -54,10 +54,15 @@ Grounding (5 câu test, /2): cả 3 cấu hình 2,00. Tuân thủ filter của C
         ├── ingest_issues.json       # log trang bị cắt References / lỗi trích xuất
         ├── traces_A.json, traces_B.json, traces_C.json   # trace top-3 đầy đủ từng câu
         ├── metrics.json             # Hit@1 / Hit@3 theo cấu hình × split
-        ├── traces_readable.md, top3_all.csv               # bản dễ đọc của trace
-        ├── audit/                   # chấm thủ công: coherence.json, metadata.json, grounding.json, audit_summary.md
-        └── page_inspection.txt, benchmark_check.txt, setup_check.txt
+        ├── coherence.json           # nhãn chấm thủ công: coherence (10 vị trí)
+        ├── metadata.json            # nhãn chấm thủ công: metadata đúng
+        ├── grounding.json           # nhãn chấm thủ công: grounding (5 câu test)
+        └── benchmark_check.txt      # kết quả verify_benchmark.py
 ```
+
+Ngoài ra repo còn giữ nguyên các file của đề bài: `assets/` (sơ đồ), `docs/`, `data/format-example.json`, `report/individual/MSSV_HoTen.md` (mẫu), `REPORT_TEMPLATE.md`, `starter/README.md`. Mã pipeline còn có `starter/src/models.py` (dataclass `DocumentPage`, `Chunk`).
+
+> Các file sinh phụ **không commit** (chạy lại script để tạo): `page_inspection.txt`, `setup_check.txt`, `traces_readable.md`, `top3_all.csv`, `audit/audit_summary.md`.
 
 ---
 
@@ -140,8 +145,8 @@ Khai báo trong `STRATEGIES` ở [starter/src/run.py](starter/src/run.py). A–B
 | `verify_benchmark.py ..\benchmark\questions.json` | Kiểm tra số câu/split/filter, evidence nằm đúng trang gold → `results/benchmark_check.txt` | Không |
 | `test_embedding.py` | Gọi thử Cohere với 1 câu hỏi + 3 đoạn văn | Có (3 lần) |
 | `export_traces.py` | Xuất trace dễ đọc → `results/traces_readable.md`, `results/top3_all.csv` | Không |
-| `make_audit_templates.py` | Sinh mẫu chấm thủ công (10 vị trí coherence chọn theo quy tắc cố định; 5 câu test cho metadata/grounding) → `results/audit/*.json` (không ghi đè nếu đã có) | Không |
-| `summarize_audit.py` | Tổng hợp nhãn chấm → `results/audit/audit_summary.md` | Không |
+| `make_audit_templates.py` | Sinh mẫu chấm thủ công (10 vị trí coherence chọn theo quy tắc cố định; 5 câu test cho metadata/grounding) → `results/audit/*.json` (không ghi đè nếu đã có). Bản nhãn đã chấm được commit tại `results/coherence.json`, `metadata.json`, `grounding.json` | Không |
+| `summarize_audit.py` | Tổng hợp nhãn chấm trong `results/audit/` → `results/audit/audit_summary.md` (cần chép 3 file nhãn vào `results/audit/` trước khi chạy) | Không |
 
 ---
 
