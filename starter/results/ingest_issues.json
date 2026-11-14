@@ -1,0 +1,14 @@
+[
+  {
+    "document_id": "vit-seg-survey-2023",
+    "page": 26,
+    "issue": "references_trimmed",
+    "detail": "bỏ 359 ký tự sau 'References'"
+  },
+  {
+    "document_id": "swin-2021",
+    "page": 11,
+    "issue": "references_trimmed",
+    "detail": "bỏ 4435 ký tự sau 'References'"
+  }
+]

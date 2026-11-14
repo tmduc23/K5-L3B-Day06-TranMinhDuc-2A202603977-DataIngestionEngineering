@@ -1,0 +1,78 @@
+{
+  "A": {
+    "dev": {
+      "n": 15,
+      "hit_at_1": 9,
+      "hit_at_3": 13,
+      "page_hit_at_3": 15,
+      "filter_n": 0,
+      "filter_compliant": 0,
+      "Hit@1": "9/15 (60%)",
+      "Hit@3": "13/15 (87%)",
+      "Filter": "N/A"
+    },
+    "test": {
+      "n": 5,
+      "hit_at_1": 5,
+      "hit_at_3": 5,
+      "page_hit_at_3": 5,
+      "filter_n": 0,
+      "filter_compliant": 0,
+      "Hit@1": "5/5 (100%)",
+      "Hit@3": "5/5 (100%)",
+      "Filter": "N/A"
+    }
+  },
+  "B": {
+    "dev": {
+      "n": 15,
+      "hit_at_1": 13,
+      "hit_at_3": 13,
+      "page_hit_at_3": 14,
+      "filter_n": 0,
+      "filter_compliant": 0,
+      "Hit@1": "13/15 (87%)",
+      "Hit@3": "13/15 (87%)",
+      "Filter": "N/A"
+    },
+    "test": {
+      "n": 5,
+      "hit_at_1": 2,
+      "hit_at_3": 5,
+      "page_hit_at_3": 5,
+      "filter_n": 0,
+      "filter_compliant": 0,
+      "Hit@1": "2/5 (40%)",
+      "Hit@3": "5/5 (100%)",
+      "Filter": "N/A"
+    }
+  },
+  "C": {
+    "dev": {
+      "n": 15,
+      "hit_at_1": 13,
+      "hit_at_3": 13,
+      "page_hit_at_3": 14,
+      "filter_n": 2,
+      "filter_compliant": 2,
+      "Hit@1": "13/15 (87%)",
+      "Hit@3": "13/15 (87%)",
+      "Filter": "2/2"
+    },
+    "test": {
+      "n": 5,
+      "hit_at_1": 2,
+      "hit_at_3": 5,
+      "page_hit_at_3": 5,
+      "filter_n": 1,
+      "filter_compliant": 1,
+      "Hit@1": "2/5 (40%)",
+      "Hit@3": "5/5 (100%)",
+      "Filter": "1/1"
+    }
+  },
+  "embedding_usage_this_run": {
+    "tokens": 398,
+    "api_calls": 2
+  }
+}

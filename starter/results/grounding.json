@@ -1,0 +1,720 @@
+{
+  "aspect": "grounding quality",
+  "scope": "5 câu test × A, B, C; chỉ dựa vào top-3",
+  "scale": {
+    "0": "không có bằng chứng",
+    "1": "có nhưng thiếu điều kiện/ngữ cảnh cần thiết",
+    "2": "đủ để trả lời và truy nguồn"
+  },
+  "note": "Đánh giá độ đủ của evidence truy xuất, không phải độ chính xác câu trả lời LLM.",
+  "items": [
+    {
+      "strategy": "A",
+      "id": "q08",
+      "type": "metadata_filter",
+      "question": "Trong phần ứng dụng của survey, ảnh y tế dùng cho segmentation được nhóm theo những modality nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 6,
+          "evidence_quote": "These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (survey p6) chứa nguyên câu liệt kê MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy — đủ trả lời, đúng trang.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "score": 0.5744,
+          "auto_label": "evidence",
+          "text": "done in the scope to develop more precise, efficient models and algorithms. These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc. Each of these categories contains datasets that were collected under medical supervision and some are made publicly available. Since there exist several modalities as mentioned above, the technological systems that are used for medical imagery differ. Med"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 3,
+          "section": "1. Introduction",
+          "score": 0.4218,
+          "auto_label": "miss",
+          "text": "sults on benchmark datasets. Even though several surveys have been done [12, 13, 14], a comparison between segmentation models with several benchmark datasets to identify the best-performing model has not been performed. In our survey, we provide a set of segmentation models, for each of which we define the best variant in each benchmark dataset category. This is useful in the sense of identifying the most optimal parameters such as patch size, iterations count for each variant of the model. By"
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "score": 0.411,
+          "auto_label": "page_only",
+          "text": "[10] and Wide-Context Transformer [29]. Manual segmentation of these different environmental areas from a complex satellite or aerial images is a difficult task which is time-consuming, error-prone, and requires expertise in the remote sensing domain. 2.2.2. Semantic Segmentation of Medical Images Medical image analysis has developed and incorporated scanning and visualization techniques. Segmentation techniques have been vital as it has the ability to identify and segment medical imagery to ass"
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "id": "q09",
+      "type": "dien_dat_lai",
+      "question": "Bên trong một Swin Transformer block, sau module MSA dựa trên shifted window là thành phần gì?",
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 4,
+          "evidence_quote": "a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between"
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (swin p4) có câu 'consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU' — đủ, đúng trang.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.7298,
+          "auto_label": "evidence",
+          "text": "elf attention (MSA) module in a Transformer block by a module based on shifted windows (described in Section 3.2), with other layers kept the same. As illustrated in Figure 3(b), a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module. 3.2. Shifted Window based Self-Attention The standard Transfo"
+        },
+        {
+          "rank": 2,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "score": 0.6737,
+          "auto_label": "page_only",
+          "text": "uration that is shifted from that of the preceding layer, by displacing the windows by (⌊ M2⌋,⌊ M2⌋) pixels from the regularly partitioned windows. With the shifted window partitioning approach, consecutive Swin Transformer blocks are computed as ˆzl = W-MSA (LN (zl−1)) + zl−1, zl = MLP (LN (ˆzl)) + ˆzl, ˆzl+1 = SW-MSA (LN (zl)) + zl, zl+1 = MLP (LN (ˆzl+1)) + ˆzl+1, (3) where ˆzl and zl denote the output features of the (S)W- MSA module and the MLP module for blockl, respectively; 3We omit Soft"
+        },
+        {
+          "rank": 3,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.6736,
+          "auto_label": "page_only",
+          "text": "SA and SW-MSA are multi-head self attention modules with regular and shifted windowing configurations, respectively. with the same feature map resolutions as those of typical convolutional networks, e.g., VGG [52] and ResNet [30]. As a result, the proposed architecture can conveniently replace the backbone networks in existing methods for various vision tasks. Swin Transformer block Swin Transformer is built by replacing the standard multi-head self attention (MSA) module in a Transformer block"
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "id": "q18",
+      "type": "dien_dat_lai",
+      "question": "Twins-PCPVT khắc phục hạn chế chỉ xử lý được ảnh kích thước cố định của PVT v1 bằng cách nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]."
+        },
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 20,
+          "evidence_quote": "It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (p20) và #2 (p21) đều nêu Twins-PCPVT dùng conditional position encoding (CPE/PEG); hit #1 có cả hạn chế fixed-size của PVT v1 — đủ.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 20,
+          "section": "4.6. Twins",
+          "score": 0.5512,
+          "auto_label": "evidence",
+          "text": "grained segmentation. Figure 10: Twins-PCPVT architecture adapted from [73]. It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding. As we discussed in the Pyramid Vision Transformer section, PVT v1 can only process fixed-size image inputs due to its absolute positional en- 20"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "score": 0.5097,
+          "auto_label": "evidence",
+          "text": "coding. This hinders the performance of PVT. To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]. This is illustrated as the positional encoding generator (PEG) in Figure 10. It is capable of alleviating some of the issues encountered in fixed-position encoding. Twins architectures have shown outstanding performance on computer vision tasks including image classification and semantic s"
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 19,
+          "section": "4.5.2. PVT v2",
+          "score": 0.4849,
+          "auto_label": "miss",
+          "text": "images. The third one is the convolutional feed-forward network (Figure 9b) which helps to process different sizes of input resolutions. With these major improvements, PVT v2 was able to bring down the complexity of PVT v1 to linear complexity. Figure 8: Comparison of spatial reduction attention (SRA) layers in PVT versions [72] We can clearly see how the improvements of the PVT v2 contribute to higher gains in the benchmark comparison in Table 2. 4.6. Twins Twins [73] propose two modern Transfo"
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "id": "q19",
+      "type": "truc_tiep",
+      "question": "DPT-Base và DPT-Large có bao nhiêu lớp transformer?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (p21) chứa 'DPT-Base has 12 transformer layers… DPT-Large which has 24 layers' — đủ.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.6056,
+          "auto_label": "evidence",
+          "text": "al models based on the used image embedding technique. The DPT-Base and DPT-Large models use patch-based embedding where the input image is separated into nonoverlapping image patches. Then these are fed into the Transformer block with a learnable position embedding to locate the spatial position of each individual token (Figure 11a). DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes. The other model is the DPT-Hybrid, which uses the convolu"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "score": 0.4368,
+          "auto_label": "page_only",
+          "text": "asks including image classification and semantic segmentation. The semantic segmentation results achieved by the two Twins architectures are highly competitive compared to the Swin Transformer [4] and PVT [71]. 4.7. Dense Prediction Transformer (DPT) DPT [74] architecture is introduced with a transformer backbone inside the encoder-decoder design for fine-grained output segmentation predictions compared to the fully convolutional networks. The transformer encoder based on ViT [2] is capable of m"
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.4239,
+          "auto_label": "page_only",
+          "text": "er model is the DPT-Hybrid, which uses the convolutional backbone ResNet-50 as a feature extractor and uses the pixel-based feature maps as token inputs 21"
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "id": "q20",
+      "type": "ngoai_le",
+      "question": "Mask2Former là kiến trúc universal cho segmentation, vậy có cần huấn luyện riêng cho từng tác vụ không?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 24,
+          "evidence_quote": "Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (p24) có 'Despite being a universal architecture… still needs to be trained separately' — đủ cả vế ngoại lệ.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 24,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.6083,
+          "auto_label": "evidence",
+          "text": "0] used in MaskFormer [79]. Masked attention has been used to enhance the effectiveness of the Transformer decoder. Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks. This is a common limitation of the universal architectures for segmentation tasks. Mask2Former has achieved new SOTA performance on all three segmentation tasks (panoptic, instance, semantic) in popular datasets such as COCO and ADE20K and Citysc"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.5619,
+          "auto_label": "miss",
+          "text": "eraged to do segmentation tasks including panoptic, instance, and semantic segmentation. It is a successful attempt to introduce a universal architecture for the segmentation tasks which outperforms the current specialized SOTA architectures for each of the segmentation tasks by the time of submission. Its key components consist of a transformer decoder with masked attention. Generally, a standard Transformer attends to the full feature map. In contrast, the masked attention operator in Mask2For"
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.8. High-Resolution Transformer (HRFormer)",
+          "score": 0.5039,
+          "auto_label": "miss",
+          "text": "dense prediction. By incorporating a multi-resolution parallel transformer architecture with convolutional multi-scale fusions for the overall HRFormer architecture, the information between different resolutions is exchanged repeatedly. This process creates a high-resolution output with both local and global context information. 4.9. Masked-attention Mask Transformer (Mask2Former) Mask2Former [78] is a new transformer architecture that can be leveraged to do segmentation tasks including panoptic"
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "id": "q08",
+      "type": "metadata_filter",
+      "question": "Trong phần ứng dụng của survey, ảnh y tế dùng cho segmentation được nhóm theo những modality nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 6,
+          "evidence_quote": "These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #2 (survey p6, mục 2.2.2) chứa câu liệt kê đủ các modality; hit #1 cùng trang chỉ nói 'several modalities' — vẫn đủ trả lời và truy nguồn.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "score": 0.463,
+          "auto_label": "page_only",
+          "text": "Each of these categories contains datasets that were collected under medical supervision and some are made publicly available. Since there exist several modalities as mentioned above, the technological systems that are used for medical imagery differ. Medical imagery system development vendors built them as per the doctor’s requirements. There- 6"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "score": 0.4573,
+          "auto_label": "evidence",
+          "text": "2.2.2. Semantic Segmentation of Medical Images Medical image analysis has developed and incorporated scanning and visualization techniques. Segmentation techniques have been vital as it has the ability to identify and segment medical imagery to assist in further diagnosis and interventions. By identifying each region of interest (ROI) highlighted, various important diagnoses are happening such as brain tumor boundary detection from MRI images, pneumonia affections in X-rays, cancer detection from biopsy sample images, etc. The demand for this type of analysis through image segmentation has emerged in the recent past with much research being done in the scope to develop more precise, efficient models and algorithms. These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 26,
+          "section": "5. Discussion",
+          "score": 0.3894,
+          "auto_label": "miss",
+          "text": "5. Discussion In this survey, we discussed how ViTs became a powerful alternative to classical CNNs in various computer vision applications, their strengths as well as limitations, and how ViT contributed to the semantic segmentation of images with their usage across different domains such as remote sensing, medical and video processing. Even though we included some of the CNN architectures widely used in prior mentioned domains to provide a comparison between the ViT and CNNs, an in-depth discussion about CNN architectures is beyond the scope of this paper. We have summarized the different statistics regarding popular datasets used for semantic segmentation tasks and the results of different ViT architectures used for semantic segmentation to give a clear and high-level overview for the reader around the region of semantic segmentation."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "id": "q09",
+      "type": "dien_dat_lai",
+      "question": "Bên trong một Swin Transformer block, sau module MSA dựa trên shifted window là thành phần gì?",
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 4,
+          "evidence_quote": "a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between"
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (swin p4, mục 3.1) chứa trọn câu mô tả block (MSA → MLP 2 lớp + GELU, LayerNorm, residual) — đủ.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.7294,
+          "auto_label": "evidence",
+          "text": "Swin Transformer block Swin Transformer is built by replacing the standard multi-head self attention (MSA) module in a Transformer block by a module based on shifted windows (described in Section 3.2), with other layers kept the same. As illustrated in Figure 3(b), a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module."
+        },
+        {
+          "rank": 2,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "score": 0.6309,
+          "auto_label": "page_only",
+          "text": "As illustrated in Figure 2, the first module uses a regular window partitioning strategy which starts from the top-left pixel, and the 8× 8 feature map is evenly partitioned into 2× 2 windows of size 4× 4 (M = 4). Then, the next module adopts a windowing configuration that is shifted from that of the preceding layer, by displacing the windows by (⌊ M2⌋,⌊ M2⌋) pixels from the regularly partitioned windows. With the shifted window partitioning approach, consecutive Swin Transformer blocks are computed as ˆzl = W-MSA (LN (zl−1)) + zl−1, zl = MLP (LN (ˆzl)) + ˆzl, ˆzl+1 = SW-MSA (LN (zl)) + zl, zl+1 = MLP (LN (ˆzl+1)) + ˆzl+1, (3) where ˆzl and zl denote the output features of the (S)W- MSA module and the MLP module for blockl, respectively; 3We omit SoftMax computation in determining complexity. 4"
+        },
+        {
+          "rank": 3,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.5984,
+          "auto_label": "page_only",
+          "text": "(a) Architecture MLP LN LN W-MSA (b) Two Successive Swin Transformer Blocks MLP LN LN SW-MSAImages Swin Transformer Block Linear Embedding Swin Transformer Block Patch Merging Swin Transformer Block Patch Merging Swin Transformer Block Patch Merging Stage 1 Stage 2 Stage 3 Stage 4 2 2 6 2 Patch Partition Figure 3. (a) The architecture of a Swin Transformer (Swin-T); (b) two successive Swin Transformer Blocks (notation presented with Eq. (3)). W-MSA and SW-MSA are multi-head self attention modules with regular and shifted windowing configurations, respectively. with the same feature map resolutions as those of typical convolutional networks, e.g., VGG [52] and ResNet [30]. As a result, the proposed architecture can conveniently replace the backbone networks in existing methods for various vision tasks."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "id": "q18",
+      "type": "dien_dat_lai",
+      "question": "Twins-PCPVT khắc phục hạn chế chỉ xử lý được ảnh kích thước cố định của PVT v1 bằng cách nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]."
+        },
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 20,
+          "evidence_quote": "It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #2 (p21) nêu 'Twins-PCPVT uses a conditional position encoding (CPE)…' — đủ trả lời; hit #1 chỉ giới thiệu Twins. Chunk mở đầu 'coding. This hinders…' nhưng câu hỏi đã nêu hạn chế.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 19,
+          "section": "4.6. Twins",
+          "score": 0.4723,
+          "auto_label": "miss",
+          "text": "4.6. Twins Twins [73] propose two modern Transformer designs for computer vision named Twins-PCPVT and Twins-SVT by revisiting the work on the PVT v1 [71] and Swin Transformer [4]. Twins-SVT uses a spatially separable self-attention (SSSA) mechanism based on the depth-wise separable convolutions in neural networks. This 19"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "score": 0.472,
+          "auto_label": "evidence",
+          "text": "coding. This hinders the performance of PVT. To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]. This is illustrated as the positional encoding generator (PEG) in Figure 10. It is capable of alleviating some of the issues encountered in fixed-position encoding. Twins architectures have shown outstanding performance on computer vision tasks including image classification and semantic segmentation. The semantic segmentation results achieved by the two Twins architectures are highly competitive compared to the Swin Transformer [4] and PVT [71]."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5. Pyramid Vision Transformer (PVT)",
+          "score": 0.4587,
+          "auto_label": "miss",
+          "text": "4.5. Pyramid Vision Transformer (PVT) ViT couldn’t be directly applicable to dense prediction tasks because its output feature map is single scaled and it generally has a low resolution which comes at a higher computational cost. PVT [71] overcomes the aforementioned concerns by introducing a progressive shrinking pyramid backbone network to reduce the computational costs and simultaneously output more fine-grained segmentation. PVT comes in two variants. PVT v1 [71] is the first work by the authors and PVT v2 [72] comes with some additional improvements to the previous version."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "id": "q19",
+      "type": "truc_tiep",
+      "question": "DPT-Base và DPT-Large có bao nhiêu lớp transformer?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #1 (p21) chứa câu 12 lớp / 24 lớp — đủ, đúng trang.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.6579,
+          "auto_label": "evidence",
+          "text": "Then these are fed into the Transformer block with a learnable position embedding to locate the spatial position of each individual token (Figure 11a). DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes. The other model is the DPT-Hybrid, which uses the convolutional backbone ResNet-50 as a feature extractor and uses the pixel-based feature maps as token inputs 21"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.5238,
+          "auto_label": "page_only",
+          "text": "4.7. Dense Prediction Transformer (DPT) DPT [74] architecture is introduced with a transformer backbone inside the encoder-decoder design for fine-grained output segmentation predictions compared to the fully convolutional networks. The transformer encoder based on ViT [2] is capable of maintaining spatial resolution over all the stages of the Transformer architecture which is important for dense predictions. Figure 11: DPT architecture adapted from [74]. (a) Non-overlapping image patches are fed into the Transformer block. (b) Reassemble operation for assembling tokens into feature maps. (c) Fusion blocks for combining feature maps. In the paper, the authors have introduced several models based on the used image embedding technique. The DPT-Base and DPT-Large models use patch-based embedding where the input image is separated into nonoverlapping image patches."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 22,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.4231,
+          "auto_label": "miss",
+          "text": "to the 12-layer transformer block. The Transformer blocks reassemble the tokens with multi-head self-attention (MSA) [1] sequential blocks for global interaction between tokens. The tokens are reassembled into image-like feature representations in various resolutions (Figure 11b). Finally, these representations are combined using residual convolutional units in the decoder and fused together for the final dense prediction (Figure 11c). The experimental results of the dense prediction transformer have provided improved accuracy results over several benchmark dataset comparisons. The results show that for a large training dataset, the model has the best performance. The comparisons were done for depth estimations and semantic segmentation. ADE20K dataset is used for segmentation and the DPT-Hybrid model has outperformed all the fully-convolutional models [74]. The DPT has the ability to identify precise boundaries of objects with less distortion."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "id": "q20",
+      "type": "ngoai_le",
+      "question": "Mask2Former là kiến trúc universal cho segmentation, vậy có cần huấn luyện riêng cho từng tác vụ không?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 24,
+          "evidence_quote": "Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Hit #2 (p24) chứa câu 'still needs to be trained separately for each of the specific tasks'; hit #1 (p23) chỉ nói universal — vẫn đủ trong top-3.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.6052,
+          "auto_label": "miss",
+          "text": "4.9. Masked-attention Mask Transformer (Mask2Former) Mask2Former [78] is a new transformer architecture that can be leveraged to do segmentation tasks including panoptic, instance, and semantic segmentation. It is a successful attempt to introduce a universal architecture for the segmentation tasks which outperforms the current specialized SOTA architectures for each of the segmentation tasks by the time of submission. Its key components consist of a transformer decoder with masked attention. Generally, a standard Transformer attends to the full feature map. In contrast, the masked attention operator in Mask2Former restricts the cross-attention to the foreground region of the predicted mask and then extracts the localized features. This makes the attention mechanism more efficient in this model. Figure 13: Mask2Former architecture adapted from [78]. The model consists of a backbone feature extractor, a pixel decoder, and a Transformer decoder. 23"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 24,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.6018,
+          "auto_label": "evidence",
+          "text": "The architecture of Mask2Former is similar in design to the previous MaskFormer [79] architecture. The main components are the backbone feature extractor, pixel decoder, and the Transformer decoder (Figure 13). The backbone could be either a CNN-based model or a Transformer based model. As the pixel decoder, they have used a more advanced multi-scale deformable attention Transformer (MSDeformAttn) [6] in contrast to the feature pyramid network [80] used in MaskFormer [79]. Masked attention has been used to enhance the effectiveness of the Transformer decoder. Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks. This is a common limitation of the universal architectures for segmentation tasks. Mask2Former has achieved new SOTA performance on all three segmentation tasks (panoptic, instance, semantic) in popular datasets such as COCO and ADE20K and Cityscapes."
+        },
+        {
+          "rank": 3,
+          "document_id": "swin-2021",
+          "page": 10,
+          "section": "A2.3. Semantic segmentation on ADE20K",
+          "score": 0.4249,
+          "auto_label": "miss",
+          "text": "A2.3. Semantic segmentation on ADE20K ADE20K [83] is a widely-used semantic segmentation dataset, covering a broad range of 150 semantic categories. It has 25K images in total, with 20K for training, 2K for validation, and another 3K for testing. We utilize UperNet [69] in mmsegmentation [16] as our base framework for its high efficiency. In training, we employ the AdamW [44] optimizer with an initial learning rate of 6× 10−5, a weight decay of 0.01, a scheduler that uses linear learning rate decay, and a linear warmup of 1,500 iterations. Models are trained on 8 GPUs with 2 images per GPU for 160K iterations. For augmentations, we adopt the default setting in mmsegmentation of random horizontal flipping, random re-scaling within ratio range [0.5, 2.0] and random photometric distortion. Stochastic depth with ratio of 0.2 is applied for all Swin Transformer models. Swin-T, Swin-S are trained on the standard setting as the previous approaches with an input of 512×512."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "id": "q08",
+      "type": "metadata_filter",
+      "question": "Trong phần ứng dụng của survey, ảnh y tế dùng cho segmentation được nhóm theo những modality nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 6,
+          "evidence_quote": "These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        }
+      ],
+      "filter_applied": {
+        "document_id": "vit-seg-survey-2023",
+        "section_top": "2"
+      },
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Giống B (cùng chunk); hit #2 đủ evidence; cả 3 hit nằm trong mục 2 theo filter.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "score": 0.463,
+          "auto_label": "page_only",
+          "text": "Each of these categories contains datasets that were collected under medical supervision and some are made publicly available. Since there exist several modalities as mentioned above, the technological systems that are used for medical imagery differ. Medical imagery system development vendors built them as per the doctor’s requirements. There- 6"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "score": 0.4573,
+          "auto_label": "evidence",
+          "text": "2.2.2. Semantic Segmentation of Medical Images Medical image analysis has developed and incorporated scanning and visualization techniques. Segmentation techniques have been vital as it has the ability to identify and segment medical imagery to assist in further diagnosis and interventions. By identifying each region of interest (ROI) highlighted, various important diagnoses are happening such as brain tumor boundary detection from MRI images, pneumonia affections in X-rays, cancer detection from biopsy sample images, etc. The demand for this type of analysis through image segmentation has emerged in the recent past with much research being done in the scope to develop more precise, efficient models and algorithms. These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 5,
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "score": 0.3771,
+          "auto_label": "miss",
+          "text": "2.2.1. Semantic Segmentation of Remote Sensing Images Remote sensing is the process of getting information and monitoring the characteristics of an area without having any physical contact. The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery [21]. These high-resolution earth surface images provide a wide range of use cases such as world mapping updates [22], forest degradation analysis [23], monitoring changes to the surface [24], etc. Remote sensing imagery is widely used in combination with computer vision and Artificial Intelligence (AI) for analyzing and processing the earth’s surface over large areas with complex feature distributions. The images collected by satellites or unmanned aerial vehicles (UAV) provide a wide range of information for applications such as urban planning, disaster management, traffic management, climate change, wildlife conservation, crop monitoring, etc."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "id": "q09",
+      "type": "dien_dat_lai",
+      "question": "Bên trong một Swin Transformer block, sau module MSA dựa trên shifted window là thành phần gì?",
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 4,
+          "evidence_quote": "a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between"
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Giống B; hit #1 đủ evidence.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.7294,
+          "auto_label": "evidence",
+          "text": "Swin Transformer block Swin Transformer is built by replacing the standard multi-head self attention (MSA) module in a Transformer block by a module based on shifted windows (described in Section 3.2), with other layers kept the same. As illustrated in Figure 3(b), a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module."
+        },
+        {
+          "rank": 2,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "score": 0.6309,
+          "auto_label": "page_only",
+          "text": "As illustrated in Figure 2, the first module uses a regular window partitioning strategy which starts from the top-left pixel, and the 8× 8 feature map is evenly partitioned into 2× 2 windows of size 4× 4 (M = 4). Then, the next module adopts a windowing configuration that is shifted from that of the preceding layer, by displacing the windows by (⌊ M2⌋,⌊ M2⌋) pixels from the regularly partitioned windows. With the shifted window partitioning approach, consecutive Swin Transformer blocks are computed as ˆzl = W-MSA (LN (zl−1)) + zl−1, zl = MLP (LN (ˆzl)) + ˆzl, ˆzl+1 = SW-MSA (LN (zl)) + zl, zl+1 = MLP (LN (ˆzl+1)) + ˆzl+1, (3) where ˆzl and zl denote the output features of the (S)W- MSA module and the MLP module for blockl, respectively; 3We omit SoftMax computation in determining complexity. 4"
+        },
+        {
+          "rank": 3,
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "score": 0.5984,
+          "auto_label": "page_only",
+          "text": "(a) Architecture MLP LN LN W-MSA (b) Two Successive Swin Transformer Blocks MLP LN LN SW-MSAImages Swin Transformer Block Linear Embedding Swin Transformer Block Patch Merging Swin Transformer Block Patch Merging Swin Transformer Block Patch Merging Stage 1 Stage 2 Stage 3 Stage 4 2 2 6 2 Patch Partition Figure 3. (a) The architecture of a Swin Transformer (Swin-T); (b) two successive Swin Transformer Blocks (notation presented with Eq. (3)). W-MSA and SW-MSA are multi-head self attention modules with regular and shifted windowing configurations, respectively. with the same feature map resolutions as those of typical convolutional networks, e.g., VGG [52] and ResNet [30]. As a result, the proposed architecture can conveniently replace the backbone networks in existing methods for various vision tasks."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "id": "q18",
+      "type": "dien_dat_lai",
+      "question": "Twins-PCPVT khắc phục hạn chế chỉ xử lý được ảnh kích thước cố định của PVT v1 bằng cách nào?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]."
+        },
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 20,
+          "evidence_quote": "It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Giống B; đáp án ở hit #2 (p21).",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 19,
+          "section": "4.6. Twins",
+          "score": 0.4723,
+          "auto_label": "miss",
+          "text": "4.6. Twins Twins [73] propose two modern Transformer designs for computer vision named Twins-PCPVT and Twins-SVT by revisiting the work on the PVT v1 [71] and Swin Transformer [4]. Twins-SVT uses a spatially separable self-attention (SSSA) mechanism based on the depth-wise separable convolutions in neural networks. This 19"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "score": 0.472,
+          "auto_label": "evidence",
+          "text": "coding. This hinders the performance of PVT. To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]. This is illustrated as the positional encoding generator (PEG) in Figure 10. It is capable of alleviating some of the issues encountered in fixed-position encoding. Twins architectures have shown outstanding performance on computer vision tasks including image classification and semantic segmentation. The semantic segmentation results achieved by the two Twins architectures are highly competitive compared to the Swin Transformer [4] and PVT [71]."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5. Pyramid Vision Transformer (PVT)",
+          "score": 0.4587,
+          "auto_label": "miss",
+          "text": "4.5. Pyramid Vision Transformer (PVT) ViT couldn’t be directly applicable to dense prediction tasks because its output feature map is single scaled and it generally has a low resolution which comes at a higher computational cost. PVT [71] overcomes the aforementioned concerns by introducing a progressive shrinking pyramid backbone network to reduce the computational costs and simultaneously output more fine-grained segmentation. PVT comes in two variants. PVT v1 [71] is the first work by the authors and PVT v2 [72] comes with some additional improvements to the previous version."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "id": "q19",
+      "type": "truc_tiep",
+      "question": "DPT-Base và DPT-Large có bao nhiêu lớp transformer?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Giống B; hit #1 đủ evidence.",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.6579,
+          "auto_label": "evidence",
+          "text": "Then these are fed into the Transformer block with a learnable position embedding to locate the spatial position of each individual token (Figure 11a). DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes. The other model is the DPT-Hybrid, which uses the convolutional backbone ResNet-50 as a feature extractor and uses the pixel-based feature maps as token inputs 21"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.5238,
+          "auto_label": "page_only",
+          "text": "4.7. Dense Prediction Transformer (DPT) DPT [74] architecture is introduced with a transformer backbone inside the encoder-decoder design for fine-grained output segmentation predictions compared to the fully convolutional networks. The transformer encoder based on ViT [2] is capable of maintaining spatial resolution over all the stages of the Transformer architecture which is important for dense predictions. Figure 11: DPT architecture adapted from [74]. (a) Non-overlapping image patches are fed into the Transformer block. (b) Reassemble operation for assembling tokens into feature maps. (c) Fusion blocks for combining feature maps. In the paper, the authors have introduced several models based on the used image embedding technique. The DPT-Base and DPT-Large models use patch-based embedding where the input image is separated into nonoverlapping image patches."
+        },
+        {
+          "rank": 3,
+          "document_id": "vit-seg-survey-2023",
+          "page": 22,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "score": 0.4231,
+          "auto_label": "miss",
+          "text": "to the 12-layer transformer block. The Transformer blocks reassemble the tokens with multi-head self-attention (MSA) [1] sequential blocks for global interaction between tokens. The tokens are reassembled into image-like feature representations in various resolutions (Figure 11b). Finally, these representations are combined using residual convolutional units in the decoder and fused together for the final dense prediction (Figure 11c). The experimental results of the dense prediction transformer have provided improved accuracy results over several benchmark dataset comparisons. The results show that for a large training dataset, the model has the best performance. The comparisons were done for depth estimations and semantic segmentation. ADE20K dataset is used for segmentation and the DPT-Hybrid model has outperformed all the fully-convolutional models [74]. The DPT has the ability to identify precise boundaries of objects with less distortion."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "id": "q20",
+      "type": "ngoai_le",
+      "question": "Mask2Former là kiến trúc universal cho segmentation, vậy có cần huấn luyện riêng cho từng tác vụ không?",
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 24,
+          "evidence_quote": "Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks."
+        }
+      ],
+      "filter_applied": null,
+      "evidence_hit3_auto": true,
+      "score": 2,
+      "reason": "Giống B; đáp án ở hit #2 (p24).",
+      "hits": [
+        {
+          "rank": 1,
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.6052,
+          "auto_label": "miss",
+          "text": "4.9. Masked-attention Mask Transformer (Mask2Former) Mask2Former [78] is a new transformer architecture that can be leveraged to do segmentation tasks including panoptic, instance, and semantic segmentation. It is a successful attempt to introduce a universal architecture for the segmentation tasks which outperforms the current specialized SOTA architectures for each of the segmentation tasks by the time of submission. Its key components consist of a transformer decoder with masked attention. Generally, a standard Transformer attends to the full feature map. In contrast, the masked attention operator in Mask2Former restricts the cross-attention to the foreground region of the predicted mask and then extracts the localized features. This makes the attention mechanism more efficient in this model. Figure 13: Mask2Former architecture adapted from [78]. The model consists of a backbone feature extractor, a pixel decoder, and a Transformer decoder. 23"
+        },
+        {
+          "rank": 2,
+          "document_id": "vit-seg-survey-2023",
+          "page": 24,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "score": 0.6018,
+          "auto_label": "evidence",
+          "text": "The architecture of Mask2Former is similar in design to the previous MaskFormer [79] architecture. The main components are the backbone feature extractor, pixel decoder, and the Transformer decoder (Figure 13). The backbone could be either a CNN-based model or a Transformer based model. As the pixel decoder, they have used a more advanced multi-scale deformable attention Transformer (MSDeformAttn) [6] in contrast to the feature pyramid network [80] used in MaskFormer [79]. Masked attention has been used to enhance the effectiveness of the Transformer decoder. Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks. This is a common limitation of the universal architectures for segmentation tasks. Mask2Former has achieved new SOTA performance on all three segmentation tasks (panoptic, instance, semantic) in popular datasets such as COCO and ADE20K and Cityscapes."
+        },
+        {
+          "rank": 3,
+          "document_id": "swin-2021",
+          "page": 10,
+          "section": "A2.3. Semantic segmentation on ADE20K",
+          "score": 0.4249,
+          "auto_label": "miss",
+          "text": "A2.3. Semantic segmentation on ADE20K ADE20K [83] is a widely-used semantic segmentation dataset, covering a broad range of 150 semantic categories. It has 25K images in total, with 20K for training, 2K for validation, and another 3K for testing. We utilize UperNet [69] in mmsegmentation [16] as our base framework for its high efficiency. In training, we employ the AdamW [44] optimizer with an initial learning rate of 6× 10−5, a weight decay of 0.01, a scheduler that uses linear learning rate decay, and a linear warmup of 1,500 iterations. Models are trained on 8 GPUs with 2 images per GPU for 160K iterations. For augmentations, we adopt the default setting in mmsegmentation of random horizontal flipping, random re-scaling within ratio range [0.5, 2.0] and random photometric distortion. Stochastic depth with ratio of 0.2 is applied for all Swin Transformer models. Swin-T, Swin-S are trained on the standard setting as the previous approaches with an input of 512×512."
+        }
+      ]
+    }
+  ]
+}

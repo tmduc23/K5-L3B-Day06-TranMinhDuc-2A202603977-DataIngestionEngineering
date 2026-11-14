@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size,500,50,document_id+source+page+section+section_top+document_type+year,none,cohere/embed-v4.0 (1536d),Cắt cố định làm tách evidence nên Hit thấp hơn B,9/15,13/15,5/5,5/5,242 chunk; q05 evidence bị tách; coherence 0.90; metadata 13/15
+B,heading+sentence,1000,0,document_id+source+page+section+section_top+document_type+year,none,cohere/embed-v4.0 (1536d),Chunk theo heading giữ trọn ý nên Hit và coherence cao hơn A,13/15,13/15,2/5,5/5,151 chunk; test đúng ở hạng 2 (q08 q18 q20); coherence 1.50; metadata 15/15
+C,heading+sentence (index B),1000,0,document_id+source+page+section+section_top+document_type+year,document_id/document_type/section_top khi câu có filter,cohere/embed-v4.0 (1536d),Filter loại chunk ngoài phạm vi nên tăng hit ở câu có filter,13/15,13/15,2/5,5/5,filter dev 2/2 test 1/1; kết quả trùng B; ĐƯỢC CHỌN (xem benchmark/README.md)

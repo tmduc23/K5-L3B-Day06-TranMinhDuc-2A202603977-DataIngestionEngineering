@@ -1,0 +1,302 @@
+{
+  "aspect": "chunk coherence",
+  "selection_rule": "Sắp 37 trang nội dung theo (thứ tự manifest, số trang), lấy 10 trang cách đều (chỉ số 0, 4, …, 36); vị trí = ký tự giữa trang. Chọn trước, không phụ thuộc kết quả.",
+  "scale": {
+    "0": "bị cắt giữa ý / thiếu chủ thể làm không hiểu",
+    "1": "hiểu một phần, thiếu ngữ cảnh",
+    "2": "tự hiểu được và giữ trọn ý"
+  },
+  "note": "C dùng chung chunk của B nên không chấm riêng.",
+  "positions": [
+    {
+      "position_id": "P01",
+      "document_id": "vit-seg-survey-2023",
+      "page": 1,
+      "char_pos": 1130,
+      "sentence_at_position": "In this survey, we discuss some of the different ViT architectures that can be used for semantic segmentation and how their evolution managed the above-stated challenge.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p001-c02",
+          "section": "Abstract",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Bắt đầu giữa từ 't detection since ViT…', kết thúc giữa từ 'performanc'; ý chính (survey bàn về các kiến trúc ViT cho segmentation) hiểu được nhưng câu đầu mất chủ thể.",
+          "chunk_text": "t detection since ViT is not a general purpose backbone due to its patch partitioning scheme. In this survey, we discuss some of the different ViT architectures that can be used for semantic segmentation and how their evolution managed the above-stated challenge. The rise of ViT and its performance with a high success rate motivated the community to slowly replace the traditional convolutional neural networks in various computer vision tasks. This survey aims to review and compare the performanc"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p001-c01",
+          "section": "Abstract",
+          "chunk_len": 899,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu bằng 'Abstract', các câu trọn vẹn, kết thúc trọn câu; tự hiểu được nội dung tóm tắt.",
+          "chunk_text": "Abstract Semantic segmentation has a broad range of applications in a variety of domains including land coverage analysis, autonomous driving, and medical image analysis. Convolutional neural networks (CNN) and Vision Transformers (ViTs) provide the architecture models for semantic segmentation. Even though ViTs have proven success in image classification, they cannot be directly applied to dense prediction tasks such as image segmentation and object detection since ViT is not a general purpose backbone due to its patch partitioning scheme. In this survey, we discuss some of the different ViT architectures that can be used for semantic segmentation and how their evolution managed the above-stated challenge. The rise of ViT and its performance with a high success rate motivated the community to slowly replace the traditional convolutional neural networks in various computer vision tasks."
+        }
+      }
+    },
+    {
+      "position_id": "P02",
+      "document_id": "vit-seg-survey-2023",
+      "page": 5,
+      "char_pos": 873,
+      "sentence_at_position": "The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery [21].",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p005-c01",
+          "section": "2.2. Applications of Semantic Segmentation",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Mở đầu 'each of these domains, we highlight…' thiếu chủ thể; vắt qua heading 2.2 → 2.2.1; kết thúc giữa trích dẫn '[2'. Câu về active/passive sensors vẫn trọn.",
+          "chunk_text": "each of these domains, we highlight the unique challenges and opportunities that arise, as well as the current state-of-the-art methods and techniques. 2.2.1. Semantic Segmentation of Remote Sensing Images Remote sensing is the process of getting information and monitoring the characteristics of an area without having any physical contact. The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery [2"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p005-c02",
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "chunk_len": 1000,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu bằng heading 2.2.1, các câu trọn, giữ trọn ý về remote sensing và ứng dụng.",
+          "chunk_text": "2.2.1. Semantic Segmentation of Remote Sensing Images Remote sensing is the process of getting information and monitoring the characteristics of an area without having any physical contact. The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery [21]. These high-resolution earth surface images provide a wide range of use cases such as world mapping updates [22], forest degradation analysis [23], monitoring changes to the surface [24], etc. Remote sensing imagery is widely used in combination with computer vision and Artificial Intelligence (AI) for analyzing and processing the earth’s surface over large areas with complex feature distributions. The images collected by satellites or unmanned aerial vehicles (UAV) provide a wide range of information for applications such as urban planning, disaster management, traffic management, climate change, wildlife conservation, crop monitoring, etc."
+        }
+      }
+    },
+    {
+      "position_id": "P03",
+      "document_id": "vit-seg-survey-2023",
+      "page": 9,
+      "char_pos": 622,
+      "sentence_at_position": "Rotating an image by a given angle and predicting the rotation, solving jigsaw puzzles, filling a cut patch on an image, predicting the relative position of a patch of an image, and separating images belonging to different clusters can be considered as some of the pretext tasks in SSL [56].",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p009-c01",
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Bắt đầu giữa từ 'lving a pretext task…', kết thúc 'automatic la'; danh sách pretext task ở giữa trọn vẹn nhưng thiếu định nghĩa pretext task.",
+          "chunk_text": "lving a pretext task are applied to solve some downstream tasks. Rotating an image by a given angle and predicting the rotation, solving jigsaw puzzles, filling a cut patch on an image, predicting the relative position of a patch of an image, and separating images belonging to different clusters can be considered as some of the pretext tasks in SSL [56]. By using these methods, the network can learn different features in the dataset under the given scope. No labels are used here and automatic la"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p009-c00",
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "chunk_len": 990,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": false,
+          "score": 1,
+          "reason": "Mở đầu bằng mảnh câu 'task as described in Figure 2.' bị cắt do ranh giới trang 8→9; phần còn lại (định nghĩa pretext/downstream task, ví dụ) trọn và tự hiểu.",
+          "chunk_text": "task as described in Figure 2. A pretext task is a pre-designed task from which the network can learn features and then using those trained weights for different features, the network can be applied to solve some downstream tasks. A downstream task is a specified task. Common downstream tasks in computer vision are semantic segmentation, object detection, etc. Figure 2: The general pipeline of self-supervised learning. The trained weights from solving a pretext task are applied to solve some downstream tasks. Rotating an image by a given angle and predicting the rotation, solving jigsaw puzzles, filling a cut patch on an image, predicting the relative position of a patch of an image, and separating images belonging to different clusters can be considered as some of the pretext tasks in SSL [56]. By using these methods, the network can learn different features in the dataset under the given scope. No labels are used here and automatic labeling is achieved via the image itself."
+        }
+      }
+    },
+    {
+      "position_id": "P04",
+      "document_id": "vit-seg-survey-2023",
+      "page": 13,
+      "char_pos": 1177,
+      "sentence_at_position": "Data have been automatically labeled and can be used for object detection, semantic segmentation, instance segmentation, etc.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p013-c02",
+          "section": "3. Datasets",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Bắt đầu giữa từ 'ns, most of the virtual…', mất tên dataset ở đầu ('Virtual KITTI [66] Except…'); kết thúc giữa từ 'Th' của câu về IDDA.",
+          "chunk_text": "ns, most of the virtual vision datasets such as Virtual KITTI are similar to the real vision datasets. Therefore virtual datasets are useful for pre-training purposes. This dataset is created from 5 different urban scene videos from the real-world KITTI dataset. Data have been automatically labeled and can be used for object detection, semantic segmentation, instance segmentation, etc. IDDA [67] This contains 1 million frames generated from simulator CARLA oriented on different 7 city models. Th"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p013-c01",
+          "section": "3. Datasets",
+          "chunk_len": 718,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu bằng tên 'Virtual KITTI [66]', mô tả trọn Virtual KITTI và IDDA, câu cuối trọn.",
+          "chunk_text": "Virtual KITTI [66] Except for different weather and imaging conditions, most of the virtual vision datasets such as Virtual KITTI are similar to the real vision datasets. Therefore virtual datasets are useful for pre-training purposes. This dataset is created from 5 different urban scene videos from the real-world KITTI dataset. Data have been automatically labeled and can be used for object detection, semantic segmentation, instance segmentation, etc. IDDA [67] This contains 1 million frames generated from simulator CARLA oriented on different 7 city models. This dataset can be used to do semantic segmentation for more than 100 different visual domains and is specially designed for autonomous driving models."
+        }
+      }
+    },
+    {
+      "position_id": "P05",
+      "document_id": "vit-seg-survey-2023",
+      "page": 17,
+      "char_pos": 791,
+      "sentence_at_position": "This leads to a drop in accuracy since it needs to interpolate the positional encoding of testing images when they have a different resolution than training images.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p017-c01",
+          "section": "4.4. SegFormer",
+          "chunk_len": 499,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Mở đầu 'the patches.' cụt; 'It has a hierarchical…' chỉ hiểu nhờ caption; kết thúc 'key featu' mất ý chính 'Positional-Encoding-Free design'.",
+          "chunk_text": "the patches. Figure 6: SegFormer architecture adapted from [69]. It has a hierarchical Transformer encoder for feature extraction and a lightweight MLP decoder for predicting the final mask. Generally, ViT has a fixed resolution for positional encoding [70]. This leads to a drop in accuracy since it needs to interpolate the positional encoding of testing images when they have a different resolution than training images. Thus, SegFormer introduces a Positional-Encoding-Free design as a key featu"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p017-c00",
+          "section": "4.4. SegFormer",
+          "chunk_len": 953,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu bằng heading 4.4 SegFormer, giữ trọn mô tả kiến trúc, patch size và lý do bỏ positional encoding.",
+          "chunk_text": "4.4. SegFormer SegFormer [69] is an architecture for semantic segmentation which consist of a hierarchical Transformer encoder with a lightweight multilayer perceptron (MLP) decoder (Figure 6). The MLP decoder is used for predicting the final mask. To obtain a precise segmentation, it uses a patch size of 4 × 4 in contrast to ViT which uses a patch size of 16 × 16. It has an overlapped patch merging process to maintain the local continuity around the patches. Figure 6: SegFormer architecture adapted from [69]. It has a hierarchical Transformer encoder for feature extraction and a lightweight MLP decoder for predicting the final mask. Generally, ViT has a fixed resolution for positional encoding [70]. This leads to a drop in accuracy since it needs to interpolate the positional encoding of testing images when they have a different resolution than training images. Thus, SegFormer introduces a Positional-Encoding-Free design as a key feature."
+        }
+      }
+    },
+    {
+      "position_id": "P06",
+      "document_id": "vit-seg-survey-2023",
+      "page": 21,
+      "char_pos": 977,
+      "sentence_at_position": "The transformer encoder based on ViT [2] is capable of maintaining spatial resolution over all the stages of the Transformer architecture which is important for dense predictions.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p021-c02",
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Bắt đầu giữa từ 'ansformer encoder…', tên DPT chỉ xuất hiện trong caption; kết thúc giữa từ 'techni'.",
+          "chunk_text": "ansformer encoder based on ViT [2] is capable of maintaining spatial resolution over all the stages of the Transformer architecture which is important for dense predictions. Figure 11: DPT architecture adapted from [74]. (a) Non-overlapping image patches are fed into the Transformer block. (b) Reassemble operation for assembling tokens into feature maps. (c) Fusion blocks for combining feature maps. In the paper, the authors have introduced several models based on the used image embedding techni"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p021-c01",
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "chunk_len": 873,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu bằng heading 4.7 DPT, các câu trọn, tự hiểu kiến trúc DPT.",
+          "chunk_text": "4.7. Dense Prediction Transformer (DPT) DPT [74] architecture is introduced with a transformer backbone inside the encoder-decoder design for fine-grained output segmentation predictions compared to the fully convolutional networks. The transformer encoder based on ViT [2] is capable of maintaining spatial resolution over all the stages of the Transformer architecture which is important for dense predictions. Figure 11: DPT architecture adapted from [74]. (a) Non-overlapping image patches are fed into the Transformer block. (b) Reassemble operation for assembling tokens into feature maps. (c) Fusion blocks for combining feature maps. In the paper, the authors have introduced several models based on the used image embedding technique. The DPT-Base and DPT-Large models use patch-based embedding where the input image is separated into nonoverlapping image patches."
+        }
+      }
+    },
+    {
+      "position_id": "P07",
+      "document_id": "vit-seg-survey-2023",
+      "page": 25,
+      "char_pos": 1372,
+      "sentence_at_position": "Datasets Model Variant Backbone #Params (M) ADE20K Cityscapes PASCAL-Context SETR [5] SETR-Na ̈ ıve(16,160k)ρ ViT-L‡ [2] 305.67 48.06 / 48.80 - - SETR-PUP(16,160k) ViT-L ‡ 318.31 48.58 / 50.09 - - SETR-MLA(16,160k) ViT-L ‡ 310.57 48.64 / 50.28 - - SETR-PUP(16,40k) ViT-L ‡ 318.31 - 78.39 / 81.57 - SETR-PUP(16,80k) ViT-L ‡ 318.31 - 79.34 / 82.15 - SETR-Na ̈ ıve(16,80k) ViT-L ‡ 305.67 - - 52.89 / 53.61 SETR-PUP(16,80k) ViT-L ‡ 318.31 - - 54.40 / 55.27 SETR-MLA(16,80k) ViT-L ‡ 310.57 - - 54.87 / 55.83 Swinא [4] Swin-T 60 46.1 - - Swin-S 81 49.3 - - Swin-B‡ 121 51.6 - - Swin-L‡ 234 53.5 - - Segmenter§ [11] Seg-B DeiT-B † [81] 86 48.05 80.5 53.9 Seg-B/Mask DeiT-B † 86 50.08 80.6 55.0 Seg-L ViT-L ‡ 307 52.25 80.7 56.5 Seg-L/Mask ViT-L ‡ 307 53.63 81.3 59.0 SegFormer [69] MiT-B0† 3.4 37.4 / 38.0 76.2 / 78.1 - MiT-B1† 13.1 42.2 / 43.1 78.5 / 80.0 - MiT-B2† 24.2 46.5 / 47.5 81.0 / 82.2 - MiT-B3† 44.0 49.4 / 50.0 81.7 / 83.3 - MiT-B4† 60.8 50.3 / 51.1 82.3 / 83.9 - MiT-B5† 81.4 51.0 / 51.8 82.4 / 84.0 - PVTא PVT-Tiny‡ 17.0 35.7 - - PVT-Small‡ 28.2 39.8 - - PVT v1 [71] PVT-Medium ‡ 48.0 41.6 - - PVT-Large‡ 65.1 42.1 - - PVT-Large‡* 65.1 44.8 - - PVT v2-B0‡ 7.6 37.2 - - PVT v2-B1‡ 17.8 42.5 - - PVT v2 [72] PVT v2-B2 ‡ 29.1 45.2 - - PVT v2-B3‡ 49.0 47.3 - - PVT v2-B4‡ 66.3 47.9 - - PVT v2-B5‡ 85.7 48.7 - - Twins [73] Twins-PCPVT-S† 54.6 46.2 / 47.5 - - Twins-PCPVT Twins-PCPVT-B † 74.3 47.1 / 48.4 - - Twins-PCPVT-L† 91.5 48.6 / 49.8 - - Twins-SVT-S† 54.4 46.2 / 47.1 - - Twins-SVT Twins-SVT-B † 88.5 47.7 / 48.9 - - Twins-SVT-L† 133 48.8 / 50.2 - - DPT§ [74] DPT-Hybrid ViT-Hybrid ‡ 123 49.02 - 60.46DPT-Large ViT-L ‡ 343 47.63 - - HRFormer [75] OCRNet(7,150k)ρ HRFormer-S 13.5 44.0 / 45.1 - - OCRNet(7,150k) HRFormer-B 50.3 46.3 / 47.6 - - OCRNet(7,80k) HRFormer-S 13.5 - 80.0 / 81.0 - OCRNet(7,80k) HRFormer-B 50.3 - 81.4 / 82.0 - OCRNet(15,80k) HRFormer-B 50.3 - 81.9 / 82.6 57.6 / 58.5 OCRNet(7,60k) HRFormer-B 50.3 - - 56.3 / 57.1 OCRNet(7,60k) HRFormer-S 13.5 - - 53.8 / 54.6 Mask2Former [78] Swin-T - 47.7 / 49.6 - - Swin-L‡ 216 56.1 / 57.3 - - Swin-L-FaPN‡ - 56.4 / 57.7 - - Swin-L‡ 216 - 83.3 / 84.3 - Swin-B‡ - - 83.3 / 84.5 - Table 2: Comparison of the ViT models specialized for the task of semantic segmentation according to mIoU (%) using different benchmark datasets.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-vit-seg-survey-2023-p025-c03",
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": true,
+          "score": 0,
+          "reason": "Toàn bộ là số liệu Table 2 bị vỡ cột (tên model, #params, mIoU dính nhau); không xác định được hàng/cột.",
+          "chunk_text": "/ 47.5 - - Twins-PCPVT Twins-PCPVT-B † 74.3 47.1 / 48.4 - - Twins-PCPVT-L† 91.5 48.6 / 49.8 - - Twins-SVT-S† 54.4 46.2 / 47.1 - - Twins-SVT Twins-SVT-B † 88.5 47.7 / 48.9 - - Twins-SVT-L† 133 48.8 / 50.2 - - DPT§ [74] DPT-Hybrid ViT-Hybrid ‡ 123 49.02 - 60.46DPT-Large ViT-L ‡ 343 47.63 - - HRFormer [75] OCRNet(7,150k)ρ HRFormer-S 13.5 44.0 / 45.1 - - OCRNet(7,150k) HRFormer-B 50.3 46.3 / 47.6 - - OCRNet(7,80k) HRFormer-S 13.5 - 80.0 / 81.0 - OCRNet(7,80k) HRFormer-B 50.3 - 81.4 / 82.0 - OCRNet(1"
+        },
+        "B": {
+          "chunk_id": "B-vit-seg-survey-2023-p025-c01",
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "chunk_len": 999,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": true,
+          "score": 0,
+          "reason": "Toàn bộ là số liệu Table 2 bị vỡ cột; không có câu văn, không hiểu được. Section gán 4.9 (heading gần nhất) dù bảng là tổng hợp mục 4.",
+          "chunk_text": "84.0 - PVTא PVT-Tiny‡ 17.0 35.7 - - PVT-Small‡ 28.2 39.8 - - PVT v1 [71] PVT-Medium ‡ 48.0 41.6 - - PVT-Large‡ 65.1 42.1 - - PVT-Large‡* 65.1 44.8 - - PVT v2-B0‡ 7.6 37.2 - - PVT v2-B1‡ 17.8 42.5 - - PVT v2 [72] PVT v2-B2 ‡ 29.1 45.2 - - PVT v2-B3‡ 49.0 47.3 - - PVT v2-B4‡ 66.3 47.9 - - PVT v2-B5‡ 85.7 48.7 - - Twins [73] Twins-PCPVT-S† 54.6 46.2 / 47.5 - - Twins-PCPVT Twins-PCPVT-B † 74.3 47.1 / 48.4 - - Twins-PCPVT-L† 91.5 48.6 / 49.8 - - Twins-SVT-S† 54.4 46.2 / 47.1 - - Twins-SVT Twins-SVT-B † 88.5 47.7 / 48.9 - - Twins-SVT-L† 133 48.8 / 50.2 - - DPT§ [74] DPT-Hybrid ViT-Hybrid ‡ 123 49.02 - 60.46DPT-Large ViT-L ‡ 343 47.63 - - HRFormer [75] OCRNet(7,150k)ρ HRFormer-S 13.5 44.0 / 45.1 - - OCRNet(7,150k) HRFormer-B 50.3 46.3 / 47.6 - - OCRNet(7,80k) HRFormer-S 13.5 - 80.0 / 81.0 - OCRNet(7,80k) HRFormer-B 50.3 - 81.4 / 82.0 - OCRNet(15,80k) HRFormer-B 50.3 - 81.9 / 82.6 57.6 / 58.5 OCRNet(7,60k) HRFormer-B 50.3 - - 56.3 / 57.1 OCRNet(7,60k) HRFormer-S 13.5 - - 53.8 / 54.6 Mask2Form"
+        }
+      }
+    },
+    {
+      "position_id": "P08",
+      "document_id": "swin-2021",
+      "page": 3,
+      "char_pos": 2792,
+      "sentence_at_position": "The results of ViT on image classification are encouraging, but its architecture is unsuitable for use as a general-purpose backbone network on dense vision tasks or when the input image resolution is high, due to its low-resolution feature maps and the quadratic increase in complexity with image size.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-swin-2021-p003-c06",
+          "section": "2. Related Work",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Bắt đầu giữa từ 'eneral-purpose backbone…', mất chủ thể ('its low-resolution feature maps' của ViT); kết thúc 'classificat'.",
+          "chunk_text": "eneral-purpose backbone network on dense vision tasks or when the input image resolution is high, due to its low-resolution feature maps and the quadratic increase in complexity with image size. There are a few works applying ViT models to the dense vision tasks of object detection and semantic segmentation by direct upsampling or deconvolution but with relatively lower performance [2, 81]. Concurrent to our work are some that modify the ViT architecture [72, 15, 28] for better image classificat"
+        },
+        "B": {
+          "chunk_id": "B-swin-2021-p003-c03",
+          "section": "2. Related Work",
+          "chunk_len": 982,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 2,
+          "reason": "Bắt đầu 'The results of ViT on image classification are encouraging, but…', câu trọn, tự hiểu lập luận về hạn chế của ViT.",
+          "chunk_text": "The results of ViT on image classification are encouraging, but its architecture is unsuitable for use as a general-purpose backbone network on dense vision tasks or when the input image resolution is high, due to its low-resolution feature maps and the quadratic increase in complexity with image size. There are a few works applying ViT models to the dense vision tasks of object detection and semantic segmentation by direct upsampling or deconvolution but with relatively lower performance [2, 81]. Concurrent to our work are some that modify the ViT architecture [72, 15, 28] for better image classification. Empirically, we find our Swin Transformer architecture to achieve the best speedaccuracy trade-off among these methods on image classification, even though our work focuses on general-purpose performance rather than specifically on classification. Another concurrent work [66] explores a similar line of thinking to build multi-resolution feature maps on Transformers."
+        }
+      }
+    },
+    {
+      "position_id": "P09",
+      "document_id": "swin-2021",
+      "page": 7,
+      "char_pos": 2477,
+      "sentence_at_position": "Table 2(b) compares Swin Transformer and ResNe(X)t ADE20K val test #param.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-swin-2021-p007-c05",
+          "section": "4.2. Object Detection on COCO",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Mở đầu mảnh '0 on the four object detection frameworks.'; 1 câu về +3.4∼4.2 box AP hiểu được, phần còn lại là số liệu bảng vỡ cột.",
+          "chunk_text": "0 on the four object detection frameworks. Our Swin-T architecture brings consistent +3.4∼4.2 box AP gains over ResNet-50, with slightly larger model size, FLOPs and latency. Table 2(b) compares Swin Transformer and ResNe(X)t ADE20K val test #param. FLOPs FPSMethod Backbone mIoU score DANet [23] ResNet-101 45.2 - 69M 1119G 15.2 DLab.v3+ [11] ResNet-101 44.1 - 63M 1021G 16.0 ACNet [24] ResNet-101 45.9 38.5 - DNL [71] ResNet-101 46.0 56.2 69M 1249G 14.8 OCRNet [73] ResNet-101 45.3 56.0 56M 923G 19"
+        },
+        "B": {
+          "chunk_id": "B-swin-2021-p007-c02",
+          "section": "4.2. Object Detection on COCO",
+          "chunk_len": 666,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": false,
+          "score": 1,
+          "reason": "Phần lớn câu trọn (DeiT, so sánh Swin-T với ResNet-50) nhưng câu cuối 'Table 2(b) compares… ADE20K val test #param.' bị dính tiêu đề bảng, cụt ý.",
+          "chunk_text": "Note that while Swin Transformer and ResNe(X)t are directly applicable to all the above frameworks because of their hierarchical feature maps, DeiT only produces a single resolution of feature maps and cannot be directly applied. For fair comparison, we follow [81] to construct hierarchical feature maps for DeiT using deconvolution layers. Comparison to ResNe(X)t Table 2(a) lists the results of Swin-T and ResNet-50 on the four object detection frameworks. Our Swin-T architecture brings consistent +3.4∼4.2 box AP gains over ResNet-50, with slightly larger model size, FLOPs and latency. Table 2(b) compares Swin Transformer and ResNe(X)t ADE20K val test #param."
+        }
+      }
+    },
+    {
+      "position_id": "P10",
+      "document_id": "swin-2021",
+      "page": 11,
+      "char_pos": 495,
+      "sentence_at_position": "Performance of Swin MLP-Mixer on ImageNet-1K classification.",
+      "chunks": {
+        "A": {
+          "chunk_id": "A-swin-2021-p011-c01",
+          "section": "A3.3. Swin MLP-Mixer",
+          "chunk_len": 500,
+          "starts_mid_sentence_auto": false,
+          "ends_mid_sentence_auto": true,
+          "score": 1,
+          "reason": "Mở đầu bằng số '1.3' và caption bảng; mảnh 'proach, ResMLP [61].' bị ngắt bởi bảng; kết thúc giữa từ 'the s'. Câu so sánh Swin-Mixer vs MLP-Mixer hiểu được.",
+          "chunk_text": "1.3 Table 10. Performance of Swin MLP-Mixer on ImageNet-1K classification. D indictes the number of channels per head. Throughput is measured using the GitHub repository of [68] and a V100 GPU, following [63]. proach, ResMLP [61]. Swin-Mixer performs significantly better than MLP-Mixer (81.3% vs. 76.4%) using slightly smaller computation budget (10.4G vs. 12.7G). It also has better speed accuracy trade-off compared to ResMLP [62]. These results indicate the proposed hierarchical design and the s"
+        },
+        "B": {
+          "chunk_id": "B-swin-2021-p011-c00",
+          "section": "A3.3. Swin MLP-Mixer",
+          "chunk_len": 991,
+          "starts_mid_sentence_auto": true,
+          "ends_mid_sentence_auto": false,
+          "score": 1,
+          "reason": "Mở đầu bằng dòng số liệu Table 10 (đọc được một phần); mảnh 'proach, ResMLP [61].' cụt do bảng chen ngang; các câu cuối trọn và tự hiểu.",
+          "chunk_text": "method imagesize #param. FLOPs throughput(image / s) ImageNettop-1 acc. MLP-Mixer-B/16 [61] 2242 59M 12.7G - 76.4 ResMLP-S24 [62] 2242 30M 6.0G 715 79.4 ResMLP-B24 [62] 2242 116M 23.0G 231 81.0 Swin-T/D24 (Transformer) 2562 28M 5.9G 563 81.6 Swin-Mixer-T/D24 2562 20M 4.0G 807 79.4 Swin-Mixer-T/D12 2562 21M 4.0G 792 79.6 Swin-Mixer-T/D6 2562 23M 4.0G 766 79.7 Swin-Mixer-B/D24 (no shift) 2242 61M 10.4G 409 80.3 Swin-Mixer-B/D24 2242 61M 10.4G 409 81.3 Table 10. Performance of Swin MLP-Mixer on ImageNet-1K classification. D indictes the number of channels per head. Throughput is measured using the GitHub repository of [68] and a V100 GPU, following [63]. proach, ResMLP [61]. Swin-Mixer performs significantly better than MLP-Mixer (81.3% vs. 76.4%) using slightly smaller computation budget (10.4G vs. 12.7G). It also has better speed accuracy trade-off compared to ResMLP [62]. These results indicate the proposed hierarchical design and the shifted window approach are generalizable."
+        }
+      }
+    }
+  ]
+}

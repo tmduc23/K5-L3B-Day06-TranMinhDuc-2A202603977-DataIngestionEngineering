@@ -1,0 +1,49 @@
+{
+  "run_at": "2026-11-14T03:58:29+00:00",
+  "embedding": {
+    "provider": "Cohere Embed API v2 (https://api.cohere.com/v2/embed)",
+    "model": "embed-v4.0",
+    "dimensions": 1536,
+    "query_document_handling": "input_type search_document / search_query, embedding_types float, truncate NONE",
+    "output_dimension": 1536,
+    "batch_size": 96
+  },
+  "vector_store": {
+    "postgres": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "pgvector": "0.8.7",
+    "table": "chunks",
+    "metric": "cosine (<=>)",
+    "search": "exact (không có index ANN)"
+  },
+  "top_k": 3,
+  "strategies": {
+    "A": {
+      "index": "A",
+      "chunker": "fixed_size",
+      "params": {
+        "size": 500,
+        "overlap": 50
+      },
+      "use_filter": false
+    },
+    "B": {
+      "index": "B",
+      "chunker": "by_paragraph",
+      "params": {
+        "max_size": 1000
+      },
+      "use_filter": false
+    },
+    "C": {
+      "index": "B",
+      "chunker": "by_paragraph (dùng lại index B)",
+      "params": {},
+      "use_filter": true
+    }
+  },
+  "libraries": {
+    "pypdf": "6.21.4",
+    "psycopg": "3.3.8",
+    "python-dotenv": "1.2.4"
+  }
+}

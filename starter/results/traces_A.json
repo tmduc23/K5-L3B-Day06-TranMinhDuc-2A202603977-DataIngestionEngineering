@@ -1,0 +1,1272 @@
+{
+  "strategy": "A",
+  "config": {
+    "index": "A",
+    "chunker": "fixed_size",
+    "params": {
+      "size": 500,
+      "overlap": 50
+    },
+    "use_filter": false
+  },
+  "summary": {
+    "dev": {
+      "Hit@1": "9/15 (60%)",
+      "Hit@3": "13/15 (87%)",
+      "Filter": "N/A"
+    },
+    "test": {
+      "Hit@1": "5/5 (100%)",
+      "Hit@3": "5/5 (100%)",
+      "Filter": "N/A"
+    }
+  },
+  "score": "cosine similarity = 1 - cosine distance (pgvector <=>); chỉ so sánh trong cùng câu hỏi",
+  "label_legend": {
+    "evidence": "chunk đúng source + page của gold và chứa đủ evidence_quote (tính là hit)",
+    "page_only": "đúng source + page nhưng thiếu evidence (evidence bị tách / chunk khác cùng trang)",
+    "miss": "sai nguồn hoặc sai trang"
+  },
+  "traces": [
+    {
+      "id": "q01",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "SegFormer dùng patch size bao nhiêu, so với ViT?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 17,
+          "evidence_quote": "it uses a patch size of 4 × 4 in contrast to ViT which uses a patch size of 16 × 16"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5853,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 17,
+          "section": "4.4. SegFormer",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p017-c01",
+          "text": "the patches. Figure 6: SegFormer architecture adapted from [69]. It has a hierarchical Transformer encoder for feature extraction and a lightweight MLP decoder for predicting the final mask. Generally, ViT has a fixed resolution for positional encoding [70]. This leads to a drop in accuracy since it needs to interpolate the positional encoding of testing images when they have a different resolution than training images. Thus, SegFormer introduces a Positional-Encoding-Free design as a key featu"
+        },
+        {
+          "rank": 2,
+          "score": 0.5769,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 17,
+          "section": "4.4. SegFormer",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p017-c00",
+          "text": "4.4. SegFormer SegFormer [69] is an architecture for semantic segmentation which consist of a hierarchical Transformer encoder with a lightweight multilayer perceptron (MLP) decoder (Figure 6). The MLP decoder is used for predicting the final mask. To obtain a precise segmentation, it uses a patch size of 4 × 4 in contrast to ViT which uses a patch size of 16 × 16. It has an overlapped patch merging process to maintain the local continuity around the patches. Figure 6: SegFormer architecture ada"
+        },
+        {
+          "rank": 3,
+          "score": 0.4657,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5. Pyramid Vision Transformer (PVT)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p018-c01",
+          "text": "variants. PVT v1 [71] is the first work by the authors and PVT v2 [72] comes with some additional improvements to the previous version. 4.5.1. PVT v1 This initial version has some noteworthy changes compared to the ViT. It takes 4× 4 input patches in contrast to the 16 × 16 patches in ViT. This improves the model’s ability to learn high-resolution representations. It also reduces the computational demand of traditional ViT by using a progressive shrinking pyramid. This pyramid structure progress"
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Focal loss xử lý thế nào với những mẫu đã được phân loại đúng?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 11,
+          "evidence_quote": "When focal loss is applied to samples with accurate classifications, the scaling factor value is down-weighted."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5283,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 11,
+          "section": "2.4. Loss functions in semantic segmentation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p011-c00",
+          "text": "entropy calculates the average per-pixel loss without considering the adjacent pixels which can be boundaries. As a further improvement for the cross-entropy loss, the focal loss technique [58] was introduced. This is implemented by altering the structure of cross-entropy loss. When focal loss is applied to samples with accurate classifications, the scaling factor value is down-weighted. This ensures the more harder samples are emphasized, therefore high class imbalance won’t bias toward the ove"
+        },
+        {
+          "rank": 2,
+          "score": 0.487,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 11,
+          "section": "2.4. Loss functions in semantic segmentation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p011-c01",
+          "text": "ore high class imbalance won’t bias toward the overall calculations. Floss(pt) =−αt(1−pt)γ log(pt) (3) In the equation 3, pt is the predicted probability of the true class, αt is a scaling factor that gives higher weight to the positive class, andγ is a focusing parameter that controls how much the loss is focused on hard examples. The cross-entropy loss is scaled in this loss function, with the scaling factors decreasing to zero as the confidence in the well-classified classes rises. Therefore"
+        },
+        {
+          "rank": 3,
+          "score": 0.384,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 10,
+          "section": "2.4. Loss functions in semantic segmentation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p010-c04",
+          "text": "imbalance as the majority class will be dominant. To overcome this when the dataset is skewed, a weighted cross entropy loss is introduced in [31]. WCEloss(p,q ) =− n∑ i=1 piwi log(qi) (2) Here as in equation 2, a weight factor as wi for the ith class is inserted to the typical equation 1. But the issue was not significantly solved as the cross 10"
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Khi nào self-supervised learning là cách tốt nhất để huấn luyện mô hình semantic segmentation?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 10,
+          "evidence_quote": "If there are no properly annotated datasets, SSL is the best way to train semantic segmentation architectures."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5366,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 10,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p010-c00",
+          "text": "• Generative-Contrastive (Adversarial): Train encoder to encode the given input and create fake outputs and compare the features of the input and output [57] Semantic segmentation is one of the major downstream tasks that can be performed using SSL. Pixel-wise labeling is essential in semantic segmentation. If there are no properly annotated datasets, SSL is the best way to train semantic segmentation architectures. 2.4. Loss functions in semantic segmentation For segmentation, classification, a"
+        },
+        {
+          "rank": 2,
+          "score": 0.4489,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 8,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p008-c05",
+          "text": "been tricky. Specially when considering Transformer architectures, self-supervised learning plays a great role as a remedy for data-hungry problems in deep learning. In human vision, humans are fed with different things in the environment and then are able to distinguish those things from other objects in the environment. There are no labeling mechanisms for these scenarios. Therefore, this is the technique used in SSL which actually trains a neural network using an unlabeled dataset where the"
+        },
+        {
+          "rank": 3,
+          "score": 0.434,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 8,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p008-c04",
+          "text": "d data or manual labeling is difficult in every aspect. Training a network from scratch is a somewhat costly task; as a remedy for this, transfer learning comes into play. But when considering specified downstream tasks such as satellite imagery semantic segmentation, using pre-trained datasets is difficult as most of the architectures have been trained on benchmark datasets where the data domain is different. Therefore, getting good accuracy has been tricky. Specially when considering Transform"
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Dữ liệu Cityscapes được thu thập từ bao nhiêu thành phố?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 13,
+          "evidence_quote": "data have been collected from 50 different cities in Germany and neighboring countries"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.462,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 13,
+          "section": "3. Datasets",
+          "section_top": "3",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p013-c00",
+          "text": "different variants namely KITTI-2012, KITTI-2015 and they have some differences in the ground truth. Cityscapes [46] This contains large-scale pixel-level and instance-level semantic segmentation annotations recorded from a set of stereo video sequences. Compared to other datasets, quality, data size, and annotations in this dataset have a good rank and data have been collected from 50 different cities in Germany and neighboring countries. IDD [65] This is specially designed for road scene under"
+        },
+        {
+          "rank": 2,
+          "score": 0.393,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 13,
+          "section": "3. Datasets",
+          "section_top": "3",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p013-c03",
+          "text": "ator CARLA oriented on different 7 city models. This dataset can be used to do semantic segmentation for more than 100 different visual domains and is specially designed for autonomous driving models. Dataset Classes Size Train Validation Test Resolution (pixels) Category PASCAL-Context 540 19740 4998 5105 9637 387 × 470 No cross-domain ADE20K 150 25210 20210 2000 3000 - No cross-domain KITTI 5 252 140 - 112 1392 × 512 No cross-domain Cityscapes 30 5K fine, 20K coarse 2975 500 1525 1024 × 2048 C"
+        },
+        {
+          "rank": 3,
+          "score": 0.3818,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 13,
+          "section": "4. Meta-analysis",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p013-c05",
+          "text": "are selected upon considering the datasets that they benchmarked (ADE20K, Cityscapes, PASCAL-Context). 13"
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Dữ liệu thu thập trong điều kiện mưa, đêm, tuyết được xếp vào nhóm dataset nào?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 12,
+          "evidence_quote": "If data is collected under some deviated environmental conditions including rainy, cloudy, nighttime, snowy, etc then such data are categorized under cross-domain datasets."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.4967,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 12,
+          "section": "3. Datasets",
+          "section_top": "3",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p012-c01",
+          "text": "atasets used for the training and testing of semantic segmentation models are considered. Factors affecting the creation of real datasets are lighting conditions, weather, and season. Based on these factors, datasets can be classified into different groups. When data is collected under normal daytime environmental conditions, those data are categorized under no cross-domain datasets. If data is collected under some deviated environmental conditions including rainy, cloudy, nighttime, snowy, etc"
+        },
+        {
+          "rank": 2,
+          "score": 0.4416,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 12,
+          "section": "3. Datasets",
+          "section_top": "3",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p012-c02",
+          "text": "ns including rainy, cloudy, nighttime, snowy, etc then such data are categorized under cross-domain datasets. Another category is synthetic data, where the data is artificially created and collected for training purposes. These synthetic datasets are mostly created as a cost-effective supplement for training purposes. Following are some of the benchmark datasets specially made for semantic segmentation tasks, with a summary presented in Table 1. PASCAL-Context [61] This dataset was created by ma"
+        },
+        {
+          "rank": 3,
+          "score": 0.3663,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 13,
+          "section": "3. Datasets",
+          "section_top": "3",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p013-c01",
+          "text": "5] This is specially designed for road scene understanding and data have been collected from 182 Indian road scenes. As these are taken from Indian roads, there are some variations in the weather and lighting conditions because of dust and air quality on roads. One key feature of this dataset is, this contains some special classes such as auto-rickshaws and animals on the roads. Virtual KITTI [66] Except for different weather and imaging conditions, most of the virtual vision datasets such as Vi"
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "Theo bài báo gốc, kích thước cửa sổ M mặc định của Swin Transformer là bao nhiêu?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 5,
+          "evidence_quote": "The window size is set to M = 7 by default."
+        },
+        {
+          "source_id": "swin-2021",
+          "page": 4,
+          "evidence_quote": "the latter is linear when M is fixed (set to 7 by default)"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5559,
+          "label": "evidence",
+          "document_id": "swin-2021",
+          "page": 5,
+          "section": "3.3. Architecture Variants",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p005-c07",
+          "text": "ty of Swin-T and Swin-S are similar to those of ResNet-50 (DeiT-S) and ResNet-101, respectively. The window size is set toM = 7 by default. The query dimension of each head is d = 32 , and the expansion layer of each MLP is α = 4, for all experiments. The architecture hyper-parameters of these model variants are: • Swin-T: C = 96, layer numbers ={2, 2, 6, 2} • Swin-S: C = 96, layer numbers ={2, 2, 18, 2} • Swin-B: C = 128, layer numbers ={2, 2, 18, 2} • Swin-L: C = 192, layer numbers ={2, 2, 18,"
+        },
+        {
+          "rank": 2,
+          "score": 0.5123,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p004-c06",
+          "text": "t computation of non-overlapping windows, we propose a shifted window partitioning approach which alternates between two partitioning configurations in consecutive Swin Transformer blocks. As illustrated in Figure 2, the first module uses a regular window partitioning strategy which starts from the top-left pixel, and the 8× 8 feature map is evenly partitioned into 2× 2 windows of size 4× 4 (M = 4). Then, the next module adopts a windowing configuration that is shifted from that of the preceding"
+        },
+        {
+          "rank": 3,
+          "score": 0.4994,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p004-c07",
+          "text": "uration that is shifted from that of the preceding layer, by displacing the windows by (⌊ M2⌋,⌊ M2⌋) pixels from the regularly partitioned windows. With the shifted window partitioning approach, consecutive Swin Transformer blocks are computed as ˆzl = W-MSA (LN (zl−1)) + zl−1, zl = MLP (LN (ˆzl)) + ˆzl, ˆzl+1 = SW-MSA (LN (zl)) + zl, zl+1 = MLP (LN (ˆzl+1)) + ˆzl+1, (3) where ˆzl and zl denote the output features of the (S)W- MSA module and the MLP module for blockl, respectively; 3We omit Soft"
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "split": "dev",
+      "type": "nhieu_nguon",
+      "question": "Swin Transformer đạt bao nhiêu mIoU trên ADE20K val?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": false,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 1,
+          "evidence_quote": "semantic segmentation (53.5 mIoU on ADE20K val)"
+        },
+        {
+          "source_id": "swin-2021",
+          "page": 8,
+          "evidence_quote": "Our Swin-L model with ImageNet-22K pre-training achieves 53.5 mIoU on the val set"
+        },
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 15,
+          "evidence_quote": "semantic segmentation (53.5% mIoU on ADE20Kval)"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5769,
+          "label": "miss",
+          "document_id": "swin-2021",
+          "page": 7,
+          "section": "4.2. Object Detection on COCO",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p007-c07",
+          "text": "5 62.8 234M 3230G 6.2 Table 3. Results of semantic segmentation on the ADE20K val and test set. † indicates additional deconvolution layers are used to produce hierarchical feature maps.‡ indicates that the model is pre-trained on ImageNet-22K. under different model capacity using Cascade Mask R- CNN. Swin Transformer achieves a high detection accuracy of 51.9 box AP and 45.0 mask AP, which are significant gains of +3.6 box AP and +3.3 mask AP over ResNeXt101- 64x4d, which has similar model size"
+        },
+        {
+          "rank": 2,
+          "score": 0.555,
+          "label": "miss",
+          "document_id": "swin-2021",
+          "page": 9,
+          "section": "5. Conclusion",
+          "section_top": "5",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p009-c00",
+          "text": "ImageNet COCO ADE20k Backbone top-1 top-5 APbox APmask mIoU sliding window Swin-T 81.4 95.6 50.2 43.5 45.8 Performer [14] Swin-T 79.0 94.2 - - - shifted window Swin-T 81.3 95.6 50.5 43.7 46.1 Table 6. Accuracy of Swin Transformer using different methods for self-attention computation on three benchmarks. sentation and has linear computational complexity with respect to input image size. Swin Transformer achieves the state-of-the-art performance on COCO object detection and ADE20K semantic segmen"
+        },
+        {
+          "rank": 3,
+          "score": 0.5495,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.3. Semantic Segmentation on ADE20K",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c03",
+          "text": "pre-training achieves 53.5 mIoU on the val set, surpassing the previous best model by +3.2 mIoU (50.3 mIoU by SETR [81] which has a larger model size). 4.4. Ablation Study In this section, we ablate important design elements in the proposed Swin Transformer, using ImageNet-1K image classification, Cascade Mask R-CNN on COCO object detection, and UperNet on ADE20K semantic segmentation. Shifted windows Ablations of the shifted window approach on the three tasks are reported in Table 4. Swin-T wi"
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "Trong phần ứng dụng của survey, ảnh y tế dùng cho segmentation được nhóm theo những modality nào?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 6,
+          "evidence_quote": "These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5744,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.2. Semantic Segmentation of Medical Images",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p006-c05",
+          "text": "done in the scope to develop more precise, efficient models and algorithms. These medical images that are used in image segmentation tasks can be grouped based on modalities such as MRI, CT scan, X-ray, ultrasound, microscopy, dermoscopy, etc. Each of these categories contains datasets that were collected under medical supervision and some are made publicly available. Since there exist several modalities as mentioned above, the technological systems that are used for medical imagery differ. Med"
+        },
+        {
+          "rank": 2,
+          "score": 0.4218,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 3,
+          "section": "1. Introduction",
+          "section_top": "1",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p003-c00",
+          "text": "sults on benchmark datasets. Even though several surveys have been done [12, 13, 14], a comparison between segmentation models with several benchmark datasets to identify the best-performing model has not been performed. In our survey, we provide a set of segmentation models, for each of which we define the best variant in each benchmark dataset category. This is useful in the sense of identifying the most optimal parameters such as patch size, iterations count for each variant of the model. By"
+        },
+        {
+          "rank": 3,
+          "score": 0.411,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p006-c03",
+          "text": "[10] and Wide-Context Transformer [29]. Manual segmentation of these different environmental areas from a complex satellite or aerial images is a difficult task which is time-consuming, error-prone, and requires expertise in the remote sensing domain. 2.2.2. Semantic Segmentation of Medical Images Medical image analysis has developed and incorporated scanning and visualization techniques. Segmentation techniques have been vital as it has the ability to identify and segment medical imagery to ass"
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "split": "test",
+      "type": "dien_dat_lai",
+      "question": "Bên trong một Swin Transformer block, sau module MSA dựa trên shifted window là thành phần gì?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 4,
+          "evidence_quote": "a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.7298,
+          "label": "evidence",
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p004-c02",
+          "text": "elf attention (MSA) module in a Transformer block by a module based on shifted windows (described in Section 3.2), with other layers kept the same. As illustrated in Figure 3(b), a Swin Transformer block consists of a shifted window based MSA module, followed by a 2-layer MLP with GELU nonlinearity in between. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module. 3.2. Shifted Window based Self-Attention The standard Transfo"
+        },
+        {
+          "rank": 2,
+          "score": 0.6737,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p004-c07",
+          "text": "uration that is shifted from that of the preceding layer, by displacing the windows by (⌊ M2⌋,⌊ M2⌋) pixels from the regularly partitioned windows. With the shifted window partitioning approach, consecutive Swin Transformer blocks are computed as ˆzl = W-MSA (LN (zl−1)) + zl−1, zl = MLP (LN (ˆzl)) + ˆzl, ˆzl+1 = SW-MSA (LN (zl)) + zl, zl+1 = MLP (LN (ˆzl+1)) + ˆzl+1, (3) where ˆzl and zl denote the output features of the (S)W- MSA module and the MLP module for blockl, respectively; 3We omit Soft"
+        },
+        {
+          "rank": 3,
+          "score": 0.6736,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 4,
+          "section": "3.1. Overall Architecture",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p004-c01",
+          "text": "SA and SW-MSA are multi-head self attention modules with regular and shifted windowing configurations, respectively. with the same feature map resolutions as those of typical convolutional networks, e.g., VGG [52] and ResNet [30]. As a result, the proposed architecture can conveniently replace the backbone networks in existing methods for various vision tasks. Swin Transformer block Swin Transformer is built by replacing the standard multi-head self attention (MSA) module in a Transformer block"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "split": "dev",
+      "type": "ngoai_le",
+      "question": "Swin Transformer có thêm absolute position embedding vào input không? Vì sao?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 5,
+          "evidence_quote": "Further adding absolute position embedding to the input as in [20] drops performance slightly, thus it is not adopted in our implementation."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5331,
+          "label": "miss",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.4. Ablation Study",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c05",
+          "text": "in Table 5. Relative position bias Table 4 shows comparisons of different position embedding approaches. Swin-T with relative position bias yields +1.2%/+0.8% top-1 accuracy on ImageNet-1K, +1.3/+1.5 box AP and +1.1/+1.3 mask AP method MSA in a stage (ms) Arch. (FPS)S1 S2 S3 S4 T S B sliding window (naive) 122.5 38.3 12.1 7.6 183 109 77 sliding window (kernel) 7.6 4.7 2.7 1.8 488 283 187 Performer [14] 4.8 2.8 1.8 1.5 638 370 241 window (w/o shifting) 2.8 1.7 1.2 0.9 770 444 280 shifted window"
+        },
+        {
+          "rank": 2,
+          "score": 0.5136,
+          "label": "evidence",
+          "document_id": "swin-2021",
+          "page": 5,
+          "section": "3.2. Shifted Window based Self-Attention",
+          "section_top": "3",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p005-c05",
+          "text": "he window size(M, M ) divisible by the feature map size of (h, w), bottom-right padding is employed on the feature map if needed. We observe significant improvements over counterparts without this bias term or that use absolute position embedding, as shown in Table 4. Further adding absolute position embedding to the input as in [20] drops performance slightly, thus it is not adopted in our implementation. The learnt relative position bias in pre-training can be also used to initialize a model f"
+        },
+        {
+          "rank": 3,
+          "score": 0.4994,
+          "label": "miss",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.3. Semantic Segmentation on ADE20K",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c00",
+          "text": "ImageNet COCO ADE20k top-1 top-5 APbox APmask mIoU w/o shifting 80.2 95.1 47.7 41.5 43.3 shifted windows 81.3 95.6 50.5 43.7 46.1 no pos. 80.1 94.9 49.2 42.6 43.8 abs. pos. 80.5 95.2 49.0 42.4 43.2 abs.+rel. pos. 81.3 95.6 50.2 43.4 44.0 rel. pos. w/o app. 79.3 94.7 48.2 41.9 44.1 rel. pos. 81.3 95.6 50.5 43.7 46.1 Table 4. Ablation study on the shifted windows approach and different position embedding methods on three benchmarks, using the Swin-T architecture. w/o shifting: all self-attention m"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Vì sao ViT dùng attention theo từng mảnh ảnh thay vì theo từng pixel?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 4,
+          "evidence_quote": "Instead of pixel-wise attention, patch-wise attention was used in the architecture which helped to reduce the computational complexity compared to applying self-attention to convolutional architecture."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5041,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 4,
+          "section": "2.1. Vision Transformers",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p004-c04",
+          "text": "uadratic to the image size as each pixel attends to every other pixel therefore it is a quadratic cost of the pixel count [2]. Thus [2] proposed to divide the image into a sequence of patches and treat them as tokens as it was done in NLP. Instead of pixel-wise attention, patch-wise attention was used in the architecture which helped to reduce the computational complexity compared to applying self-attention to convolutional architecture. This architecture showed promising results by surpassing a"
+        },
+        {
+          "rank": 2,
+          "score": 0.4712,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5.1. PVT v1",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p018-c02",
+          "text": "shrinking pyramid. This pyramid structure progressively shrinks the output resolution from high to low in the stages which are responsible for generating the scaled feature maps (Figure 7). Another major difference is that it replaces the multi-head attention layer (MHA) in ViT with a novel spatial reduction attention (SRA) layer which reduces the spatial scales before the attention operation. This further reduces the computational and memory demand because SRA has a low computational complexity"
+        },
+        {
+          "rank": 3,
+          "score": 0.4491,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 2,
+          "section": "1. Introduction",
+          "section_top": "1",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p002-c01",
+          "text": "a layer norm (LN). The main driving force behind the ViT is the multi-head selfattention mechanism. It helps ViT to capture long-range dependencies with less inductive bias [8]. When trained on a sufficient amount of data, ViT shows remarkable performance, beating the performance of state-of-the-art CNNs [2]. However, ViTs still have some drawbacks compared to CNNs such as the need for very large datasets. Strategies such as self-supervised based approaches can be used to alleviate some of thes"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "ViT cần điều kiện gì về dữ liệu huấn luyện để đạt kết quả tốt?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 4,
+          "evidence_quote": "A major characteristic of the ViT is that it needs more data for model training. Experiments carried out by [2] ensure that with increasing data size, ViT performs well."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5232,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 4,
+          "section": "2.1. Vision Transformers",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p004-c05",
+          "text": "hitecture showed promising results by surpassing all the stateof-the-art convolution-based methods by reaching an accuracy of 88.55% on ImageNet, 90.72% on ImageNet-ReaL, and 94.55% on CIFAR-100 datasets [2]. A major characteristic of the ViT is that it needs more data for model training. Experiments carried out by [2] ensure that with increasing data size, ViT performs well. 4"
+        },
+        {
+          "rank": 2,
+          "score": 0.5044,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 26,
+          "section": "6. Conclusions and Future Directions",
+          "section_top": "6",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p026-c03",
+          "text": "uire a vast amount of data for processing. Exploring research areas with less adaptation to ViT usage can create more efficient, performance-increased outcomes for current implementation methods. Even though ViTs have proven successful, they can be challenging to experiment with due to their high computational demand. Thus improvements to the ViT architecture are needed to make it lightweight and more efficient. This will inspire the community to open new pathways using ViTs. We believe there is"
+        },
+        {
+          "rank": 3,
+          "score": 0.4529,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 2,
+          "section": "1. Introduction",
+          "section_top": "1",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p002-c01",
+          "text": "a layer norm (LN). The main driving force behind the ViT is the multi-head selfattention mechanism. It helps ViT to capture long-range dependencies with less inductive bias [8]. When trained on a sufficient amount of data, ViT shows remarkable performance, beating the performance of state-of-the-art CNNs [2]. However, ViTs still have some drawbacks compared to CNNs such as the need for very large datasets. Strategies such as self-supervised based approaches can be used to alleviate some of thes"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Hai loại kỹ thuật viễn thám (remote sensing) chính là gì?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 5,
+          "evidence_quote": "The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5796,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 5,
+          "section": "2.2. Applications of Semantic Segmentation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p005-c01",
+          "text": "each of these domains, we highlight the unique challenges and opportunities that arise, as well as the current state-of-the-art methods and techniques. 2.2.1. Semantic Segmentation of Remote Sensing Images Remote sensing is the process of getting information and monitoring the characteristics of an area without having any physical contact. The two main types of remote sensing techniques are the use of active sensors such as RADAR, LiDAR and the use of passive sensors such as satellite imagery [2"
+        },
+        {
+          "rank": 2,
+          "score": 0.4249,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 5,
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p005-c02",
+          "text": "se of passive sensors such as satellite imagery [21]. These high-resolution earth surface images provide a wide range of use cases such as world mapping updates [22], forest degradation analysis [23], monitoring changes to the surface [24], etc. Remote sensing imagery is widely used in combination with computer vision and Artificial Intelligence (AI) for analyzing and processing the earth’s surface over large areas with complex feature distributions. The images collected by satellites or unmanne"
+        },
+        {
+          "rank": 3,
+          "score": 0.3943,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 6,
+          "section": "2.2.1. Semantic Segmentation of Remote Sensing Images",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p006-c01",
+          "text": "te data for processing using AI techniques [26]. Remote sensing images of the earth’s surface provide land cover areas that can be categorized into different segmented classes. Each of these classes is assigned a label for each pixel while preserving the spatial resolution of the image. Many datasets containing these remote sensing images and their segmented masks are available [25, 27, 28] to use for different applications such as change detection, land cover segmentation, and classification. E"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Cho vài ví dụ về nhiệm vụ tiền huấn luyện mà mạng tự giải trong học tự giám sát.",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 9,
+          "evidence_quote": "Rotating an image by a given angle and predicting the rotation, solving jigsaw puzzles, filling a cut patch on an image, predicting the relative position of a patch of an image, and separating images belonging to different clusters can be considered as some of the pretext tasks in SSL"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.4337,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 9,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p009-c00",
+          "text": "task as described in Figure 2. A pretext task is a pre-designed task from which the network can learn features and then using those trained weights for different features, the network can be applied to solve some downstream tasks. A downstream task is a specified task. Common downstream tasks in computer vision are semantic segmentation, object detection, etc. Figure 2: The general pipeline of self-supervised learning. The trained weights from solving a pretext task are applied to solve some dow"
+        },
+        {
+          "rank": 2,
+          "score": 0.377,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 9,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p009-c01",
+          "text": "lving a pretext task are applied to solve some downstream tasks. Rotating an image by a given angle and predicting the rotation, solving jigsaw puzzles, filling a cut patch on an image, predicting the relative position of a patch of an image, and separating images belonging to different clusters can be considered as some of the pretext tasks in SSL [56]. By using these methods, the network can learn different features in the dataset under the given scope. No labels are used here and automatic la"
+        },
+        {
+          "rank": 3,
+          "score": 0.3738,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 8,
+          "section": "2.3. Practical approaches to overcome the data limitation",
+          "section_top": "2",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p008-c06",
+          "text": "ural network using an unlabeled dataset where the labels are automatically provided through the dataset itself. As the first step, the network is set to solve a pretext 8"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "Trong phần meta-analysis của survey, Segmenter dùng backbone và decoder gì?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 16,
+          "evidence_quote": "consist of a ViT backbone pre-trained on ImageNet and introduces a mask transformer as the decoder"
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.4479,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 16,
+          "section": "4.2. Swin Transformer",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p016-c00",
+          "text": "lution architectures such as ResNet [68]. Therefore Swin Transformer can efficiently replace ResNet backbone networks in computer vision tasks. 4.3. Segmenter Segmenter [11] is a purely transformer-based approach for semantic segmentation which consist of a ViT backbone pre-trained on ImageNet and introduces a mask transformer as the decoder (Figure 5). Even though the model was built for segmentation tasks, they take advantage of the models made for image classification to pre-train and then fi"
+        },
+        {
+          "rank": 2,
+          "score": 0.4422,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 16,
+          "section": "4.3. Segmenter",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p016-c01",
+          "text": "for image classification to pre-train and then fine-tune them on moderate-sized segmentation datasets. Figure 5: Segmenter architecture adapted from [11]. It basically has a ViT backbone with a mask transformer as the decoder. CNN-based models are generally inefficient when processing global image context and ultimately result in a sub-optimal segmentation. The reason for the sub-optimal segmentation of the convolution-based approaches is that convolution is a local operation which poorly acces"
+        },
+        {
+          "rank": 3,
+          "score": 0.4218,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 14,
+          "section": "4. Meta-analysis",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p014-c00",
+          "text": "The intuition behind that is to compare all the models on a common basis. The benchmark results are summarized in Table 2. 4.1. SEgmentation TRansformer (SETR) SETR [5] proposes semantic segmentation as a sequence-to-sequence prediction task. They adopt a pure Transformer as the encoder part of their segmentation model without utilizing any convolution layers. In this model, they replace the prevalent stacked convolution layer based encoder with a pure Transformer which gradually reduces the spa"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Trong ablation study, shifted window giúp Swin-T tăng bao nhiêu mIoU trên ADE20K so với chia cửa sổ cố định?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "swin-2021",
+          "page": 8,
+          "evidence_quote": "Swin-T with the shifted window partitioning outperforms the counterpart built on a single window partitioning at each stage by +1.1% top-1 accuracy on ImageNet-1K, +2.8 box AP/+2.2 mask AP on COCO, and +2.8 mIoU on ADE20K."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.6275,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.3. Semantic Segmentation on ADE20K",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c00",
+          "text": "ImageNet COCO ADE20k top-1 top-5 APbox APmask mIoU w/o shifting 80.2 95.1 47.7 41.5 43.3 shifted windows 81.3 95.6 50.5 43.7 46.1 no pos. 80.1 94.9 49.2 42.6 43.8 abs. pos. 80.5 95.2 49.0 42.4 43.2 abs.+rel. pos. 81.3 95.6 50.2 43.4 44.0 rel. pos. w/o app. 79.3 94.7 48.2 41.9 44.1 rel. pos. 81.3 95.6 50.5 43.7 46.1 Table 4. Ablation study on the shifted windows approach and different position embedding methods on three benchmarks, using the Swin-T architecture. w/o shifting: all self-attention m"
+        },
+        {
+          "rank": 2,
+          "score": 0.5961,
+          "label": "evidence",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.4. Ablation Study",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c04",
+          "text": "the three tasks are reported in Table 4. Swin-T with the shifted window partitioning outperforms the counterpart built on a single window partitioning at each stage by +1.1% top-1 accuracy on ImageNet-1K, +2.8 box AP/+2.2 mask AP on COCO, and +2.8 mIoU on ADE20K. The results indicate the effectiveness of using shifted windows to build connections among windows in the preceding layers. The latency overhead by shifted window is also small, as shown in Table 5. Relative position bias Table 4 shows"
+        },
+        {
+          "rank": 3,
+          "score": 0.5899,
+          "label": "page_only",
+          "document_id": "swin-2021",
+          "page": 8,
+          "section": "4.3. Semantic Segmentation on ADE20K",
+          "section_top": "4",
+          "document_type": "original_paper",
+          "year": 2021,
+          "chunk_id": "A-swin-2021-p008-c03",
+          "text": "pre-training achieves 53.5 mIoU on the val set, surpassing the previous best model by +3.2 mIoU (50.3 mIoU by SETR [81] which has a larger model size). 4.4. Ablation Study In this section, we ablate important design elements in the proposed Swin Transformer, using ImageNet-1K image classification, Cascade Mask R-CNN on COCO object detection, and UperNet on ADE20K semantic segmentation. Shifted windows Ablations of the shifted window approach on the three tasks are reported in Table 4. Swin-T wi"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "PVT v1 thay lớp multi-head attention của ViT bằng cơ chế gì và cơ chế đó làm gì?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 18,
+          "evidence_quote": "it replaces the multi-head attention layer (MHA) in ViT with a novel spatial reduction attention (SRA) layer which reduces the spatial scales before the attention operation."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.545,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5.1. PVT v1",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p018-c02",
+          "text": "shrinking pyramid. This pyramid structure progressively shrinks the output resolution from high to low in the stages which are responsible for generating the scaled feature maps (Figure 7). Another major difference is that it replaces the multi-head attention layer (MHA) in ViT with a novel spatial reduction attention (SRA) layer which reduces the spatial scales before the attention operation. This further reduces the computational and memory demand because SRA has a low computational complexity"
+        },
+        {
+          "rank": 2,
+          "score": 0.5424,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 18,
+          "section": "4.5. Pyramid Vision Transformer (PVT)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p018-c01",
+          "text": "variants. PVT v1 [71] is the first work by the authors and PVT v2 [72] comes with some additional improvements to the previous version. 4.5.1. PVT v1 This initial version has some noteworthy changes compared to the ViT. It takes 4× 4 input patches in contrast to the 16 × 16 patches in ViT. This improves the model’s ability to learn high-resolution representations. It also reduces the computational demand of traditional ViT by using a progressive shrinking pyramid. This pyramid structure progress"
+        },
+        {
+          "rank": 3,
+          "score": 0.5153,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 2,
+          "section": "1. Introduction",
+          "section_top": "1",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p002-c01",
+          "text": "a layer norm (LN). The main driving force behind the ViT is the multi-head selfattention mechanism. It helps ViT to capture long-range dependencies with less inductive bias [8]. When trained on a sufficient amount of data, ViT shows remarkable performance, beating the performance of state-of-the-art CNNs [2]. However, ViTs still have some drawbacks compared to CNNs such as the need for very large datasets. Strategies such as self-supervised based approaches can be used to alleviate some of thes"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "split": "test",
+      "type": "dien_dat_lai",
+      "question": "Twins-PCPVT khắc phục hạn chế chỉ xử lý được ảnh kích thước cố định của PVT v1 bằng cách nào?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]."
+        },
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 20,
+          "evidence_quote": "It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.5512,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 20,
+          "section": "4.6. Twins",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p020-c01",
+          "text": "grained segmentation. Figure 10: Twins-PCPVT architecture adapted from [73]. It uses conditional position encoding with a positional encoding generator (PEG) to overcome some of the drawbacks of fixed-positional encoding. As we discussed in the Pyramid Vision Transformer section, PVT v1 can only process fixed-size image inputs due to its absolute positional en- 20"
+        },
+        {
+          "rank": 2,
+          "score": 0.5097,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p021-c00",
+          "text": "coding. This hinders the performance of PVT. To alleviate this challenge Twins-PCPVT uses a conditional position encoding (CPE) first introduced in Conditional Position encoding Vision Transformer (CPVT) [70]. This is illustrated as the positional encoding generator (PEG) in Figure 10. It is capable of alleviating some of the issues encountered in fixed-position encoding. Twins architectures have shown outstanding performance on computer vision tasks including image classification and semantic s"
+        },
+        {
+          "rank": 3,
+          "score": 0.4849,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 19,
+          "section": "4.5.2. PVT v2",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p019-c02",
+          "text": "images. The third one is the convolutional feed-forward network (Figure 9b) which helps to process different sizes of input resolutions. With these major improvements, PVT v2 was able to bring down the complexity of PVT v1 to linear complexity. Figure 8: Comparison of spatial reduction attention (SRA) layers in PVT versions [72] We can clearly see how the improvements of the PVT v2 contribute to higher gains in the benchmark comparison in Table 2. 4.6. Twins Twins [73] propose two modern Transfo"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "split": "test",
+      "type": "truc_tiep",
+      "question": "DPT-Base và DPT-Large có bao nhiêu lớp transformer?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 21,
+          "evidence_quote": "DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.6056,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p021-c03",
+          "text": "al models based on the used image embedding technique. The DPT-Base and DPT-Large models use patch-based embedding where the input image is separated into nonoverlapping image patches. Then these are fed into the Transformer block with a learnable position embedding to locate the spatial position of each individual token (Figure 11a). DPT-Base has 12 transformer layers compared to the DPT-Large which has 24 layers with wide feature sizes. The other model is the DPT-Hybrid, which uses the convolu"
+        },
+        {
+          "rank": 2,
+          "score": 0.4368,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.6. Twins",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p021-c01",
+          "text": "asks including image classification and semantic segmentation. The semantic segmentation results achieved by the two Twins architectures are highly competitive compared to the Swin Transformer [4] and PVT [71]. 4.7. Dense Prediction Transformer (DPT) DPT [74] architecture is introduced with a transformer backbone inside the encoder-decoder design for fine-grained output segmentation predictions compared to the fully convolutional networks. The transformer encoder based on ViT [2] is capable of m"
+        },
+        {
+          "rank": 3,
+          "score": 0.4239,
+          "label": "page_only",
+          "document_id": "vit-seg-survey-2023",
+          "page": 21,
+          "section": "4.7. Dense Prediction Transformer (DPT)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p021-c04",
+          "text": "er model is the DPT-Hybrid, which uses the convolutional backbone ResNet-50 as a feature extractor and uses the pixel-based feature maps as token inputs 21"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "split": "test",
+      "type": "ngoai_le",
+      "question": "Mask2Former là kiến trúc universal cho segmentation, vậy có cần huấn luyện riêng cho từng tác vụ không?",
+      "filter_applied": null,
+      "result": {
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "page_hit_at_3": true,
+        "filter_compliant": null
+      },
+      "gold": [
+        {
+          "source_id": "vit-seg-survey-2023",
+          "page": 24,
+          "evidence_quote": "Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks."
+        }
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "score": 0.6083,
+          "label": "evidence",
+          "document_id": "vit-seg-survey-2023",
+          "page": 24,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p024-c01",
+          "text": "0] used in MaskFormer [79]. Masked attention has been used to enhance the effectiveness of the Transformer decoder. Despite being a universal architecture for segmentation, Mask2Former still needs to be trained separately for each of the specific tasks. This is a common limitation of the universal architectures for segmentation tasks. Mask2Former has achieved new SOTA performance on all three segmentation tasks (panoptic, instance, semantic) in popular datasets such as COCO and ADE20K and Citysc"
+        },
+        {
+          "rank": 2,
+          "score": 0.5619,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.9. Masked-attention Mask Transformer (Mask2Former)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p023-c02",
+          "text": "eraged to do segmentation tasks including panoptic, instance, and semantic segmentation. It is a successful attempt to introduce a universal architecture for the segmentation tasks which outperforms the current specialized SOTA architectures for each of the segmentation tasks by the time of submission. Its key components consist of a transformer decoder with masked attention. Generally, a standard Transformer attends to the full feature map. In contrast, the masked attention operator in Mask2For"
+        },
+        {
+          "rank": 3,
+          "score": 0.5039,
+          "label": "miss",
+          "document_id": "vit-seg-survey-2023",
+          "page": 23,
+          "section": "4.8. High-Resolution Transformer (HRFormer)",
+          "section_top": "4",
+          "document_type": "survey",
+          "year": 2023,
+          "chunk_id": "A-vit-seg-survey-2023-p023-c01",
+          "text": "dense prediction. By incorporating a multi-resolution parallel transformer architecture with convolutional multi-scale fusions for the overall HRFormer architecture, the information between different resolutions is exchanged repeatedly. This process creates a high-resolution output with both local and global context information. 4.9. Masked-attention Mask Transformer (Mask2Former) Mask2Former [78] is a new transformer architecture that can be leveraged to do segmentation tasks including panoptic"
+        }
+      ]
+    }
+  ]
+}

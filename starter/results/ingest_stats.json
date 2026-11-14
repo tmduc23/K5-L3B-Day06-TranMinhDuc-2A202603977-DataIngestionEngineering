@@ -1,0 +1,44 @@
+{
+  "content_pages": 37,
+  "issues": 2,
+  "strategies": {
+    "A": {
+      "chunks": 242,
+      "total_chars": 112398,
+      "min": 91,
+      "median": 500.0,
+      "mean": 464.5,
+      "max": 500,
+      "approx_tokens": 28099,
+      "embed_seconds": 5.46,
+      "ingest_seconds": 5.63,
+      "obsolete_deleted": 0,
+      "reingest_count_before_after": [
+        242,
+        242
+      ],
+      "embedding_tokens": 28902,
+      "api_calls": 3,
+      "cost_usd": "tính = embedding_tokens x giá Cohere/1M token (ghi vào báo cáo)"
+    },
+    "B": {
+      "chunks": 151,
+      "total_chars": 102094,
+      "min": 54,
+      "median": 783,
+      "mean": 676.1,
+      "max": 1000,
+      "approx_tokens": 25523,
+      "embed_seconds": 3.34,
+      "ingest_seconds": 3.45,
+      "obsolete_deleted": 0,
+      "reingest_count_before_after": [
+        151,
+        151
+      ],
+      "embedding_tokens": 26165,
+      "api_calls": 2,
+      "cost_usd": "tính = embedding_tokens x giá Cohere/1M token (ghi vào báo cáo)"
+    }
+  }
+}

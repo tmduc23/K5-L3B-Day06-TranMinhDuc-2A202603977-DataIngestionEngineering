@@ -1,0 +1,57 @@
+{
+  "corpus_name": "Vision Transformers for semantic segmentation",
+  "page_counting_rule": "Tính trang có nội dung văn bản liên quan (abstract, thân bài, appendix, bảng/hình có chú thích). Loại trang chỉ chứa References. Trang lẫn nội dung + References vẫn tính và ghi chú.",
+  "extraction_tool": "pypdf 6.21.4, Unicode NFKC, script starter/scripts/inspect_corpus.py",
+  "inspection_log": "starter/results/page_inspection.txt",
+  "total_physical_pages": 49,
+  "total_content_pages": 37,
+  "sources": [
+    {
+      "source_id": "vit-seg-survey-2023",
+      "title": "Semantic Segmentation using Vision Transformers: A survey",
+      "authors": "H. Thisanke, C. Deshan, K. Chamith, S. Seneviratne, R. Vidanaarachchi, D. Herath",
+      "source_path_or_url": "https://arxiv.org/abs/2305.03273v1",
+      "local_path": "starter/data/2305.03273.pdf",
+      "version": "arXiv v1 (2023-05-05)",
+      "license_or_permission": "CC BY 4.0 — http://creativecommons.org/licenses/by/4.0/",
+      "accessed_at": "2026-11-14",
+      "year": 2023,
+      "document_type": "survey",
+      "physical_pages": 35,
+      "content_pages": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26],
+      "excluded_pages": {"27-35": "chỉ có References"},
+      "page_notes": {
+        "1": "trang tiêu đề có Abstract",
+        "20": "ít chữ, chủ yếu hình",
+        "25": "Table 2, chữ trong bảng bị vỡ cột khi trích xuất",
+        "26": "Discussion + Conclusions, cuối trang là đầu References"
+      },
+      "chars_per_page": {"1":2268,"2":2707,"3":2582,"4":2640,"5":1754,"6":2859,"7":2915,"8":2884,"9":1244,"10":2155,"11":2419,"12":2431,"13":2359,"14":1719,"15":1741,"16":1702,"17":1587,"18":1566,"19":1676,"20":824,"21":1963,"22":2087,"23":1751,"24":1056,"25":2745,"26":2341},
+      "ocr_used": false,
+      "extraction_errors": []
+    },
+    {
+      "source_id": "swin-2021",
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+      "authors": "Z. Liu, Y. Lin, Y. Cao, H. Hu, Y. Wei, Z. Zhang, S. Lin, B. Guo",
+      "source_path_or_url": "https://arxiv.org/abs/2103.14030v2",
+      "local_path": "starter/data/2103.14030v2.pdf",
+      "version": "arXiv v2",
+      "license_or_permission": "CC BY 4.0 — http://creativecommons.org/licenses/by/4.0/",
+      "accessed_at": "2026-11-14",
+      "year": 2021,
+      "document_type": "original_paper",
+      "physical_pages": 14,
+      "content_pages": [1,2,3,4,5,6,7,8,9,10,11],
+      "excluded_pages": {"12-14": "chỉ có References"},
+      "page_notes": {
+        "9": "Conclusion + Appendix A1, A2",
+        "10": "Appendix A2.3 (segmentation ADE20K), A3",
+        "11": "Table 10 + A3.3, cuối trang là đầu References"
+      },
+      "chars_per_page": {"1":3836,"2":5561,"3":5664,"4":3728,"5":4838,"6":4889,"7":4989,"8":5124,"9":5127,"10":4541,"11":5468},
+      "ocr_used": false,
+      "extraction_errors": []
+    }
+  ]
+}
