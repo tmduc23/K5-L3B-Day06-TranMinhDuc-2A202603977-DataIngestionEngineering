@@ -8,4 +8,4 @@
   (2) "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows" — arXiv 2103.14030v2, 11/14 trang nội dung.
   Tổng 37 trang nội dung (loại các trang chỉ có References). Chi tiết: `data/manifest.json`.
 - Repo bài nộp: https://github.com/tmduc23/K5-L3B-Day06-TranMinhDuc-2A202603977-DataIngestionEngineering
-- Commit chốt bài:
+- Commit chốt bài: Update final version
